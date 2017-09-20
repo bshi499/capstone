@@ -2,7 +2,10 @@
 # capstone
 ## Team members:
 ### Michael Ciminesi
+### Brian Shi
 ### Eric Chiu
+### Simon Li
+
 
 
 ## Resources:
