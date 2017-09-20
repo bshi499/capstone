@@ -2,6 +2,7 @@
 # capstone
 ## Team members:
 ### Michael Ciminesi
+### Eric Chiu
 
 
 ## Resources:
