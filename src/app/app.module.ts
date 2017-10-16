@@ -25,6 +25,6 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent, AppComponent2]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
