@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { AppComponent2 } from './app.component';
 import { FileDetailComponent } from './file-detail.component'
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
@@ -13,7 +12,6 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
 @NgModule({
   declarations: [
     AppComponent,
-    AppComponent2,
     ContactDetailsComponent,
     ContactListComponent,
     FileDetailComponent

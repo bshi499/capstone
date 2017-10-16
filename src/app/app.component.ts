@@ -29,7 +29,3 @@ export class AppComponent {
     name: 'First file'
   };
 }
-
-export class AppComponent2 {
-  title = 'app';
-}
