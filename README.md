@@ -5,7 +5,6 @@
 ### Brian Shi
 ### Simon Li
 ### Eric Chiu
-### Test
 
 ## Resources:
 
