@@ -1,0 +1,30 @@
+<p>
+  home works!
+</p>
+<h1>
+  {{homeTitle}}
+</h1>
+<!--This command displays material from the calling component-->
+<ng-content></ng-content>
+<!-- property binding -->
+<p>
+  <input value="{{myString}}" />
+  <input required="{{myBoolean}}" />
+  <button (click)="alertMe()">Click me</button>
+</p>
+<label>Name:</label>
+<input [(ngModel)]="file2.name" />
+<p>{{file2.name}}</p>
+<label>Body:</label>
+<input [(ngModel)]="file2.body" />
+<p>{{file2.body}}</p>
+<div></div>
+<br />
+<!-- <h1>Testing custom binding using @Input.</h1>
+<p>{{file.name}}</p>
+<p>{{file.body}}</p>
+<br /> -->
+<h1>Testing custom binding using @Output.</h1>
+<button (click)="fireYellEvent($event)">Click to call yell function.</button>
+<p></p>
+<br />
