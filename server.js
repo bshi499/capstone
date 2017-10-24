@@ -57,14 +57,14 @@ app.get("/api/documents", function(req, res) {
 });
 
 app.post("/api/documents", function(req, res) {
-  var newContact = req.body;
-  newContact.createDate = new Date();
+  var newDocument = req.body;
+  newDocument.createDate = new Date();
 
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   }
 
-  db.collection(DOCUMENTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(DOCUMENTS_COLLECTION).insertOne(newDocument, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new document.");
     } else {
