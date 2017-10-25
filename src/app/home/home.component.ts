@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+declare function escape(s:string): string;
 
 @Component({
   selector: 'app-home',
@@ -27,10 +28,27 @@ export class HomeComponent implements OnInit {
 
   public fileString;
 
+  constructor() {
+    this.fileString;
+  }
+
+  ngOnInit() {
+  }
+
   changeListener($event) : void {
     this.readThis($event.target);
   }
+
   readThis(inputValue: any) : void {
+    var output = [];
+    for (var i = 0, f; f = inputValue.files[i]; i++) {
+      output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+
     var file:File = inputValue.files[0];
     var myReader:FileReader = new FileReader();
 
@@ -46,11 +64,6 @@ export class HomeComponent implements OnInit {
 
     myReader.readAsText(file);
   }
-  constructor() {
-    this.fileString;
-  }
 
-  ngOnInit() {
-  }
 
 }

@@ -1,11 +1,5 @@
-<p>
-  home works!
-</p>
-<h1>
-  {{homeTitle}}
-</h1>
 <div>
-  <h1>Upload your file here:</h1>
+  <h1>Upload your files here:</h1>
   <form ng-controller = "myCtrl">
      <input type = "file" file-model="files" multiple/>
      <button ng-click = "uploadFile()">Upload</button>
@@ -42,14 +36,34 @@
   </script>
   <br />
   <br />
-  <form>
-    <input id="upload" type=file accept=".txt" name="files[]" size=30 (change)="changeListener($event)">
-  </form>
+  <!-- <form> -->
+    <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" multiple />
+    <!-- <li ng-repeat="file in files[]">{{file.name}}</li> -->
+  <!-- </form> -->
 
   <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
 
-  <!--script src="assets/js/jquery-2.1.1.js"-->
+  <output id="list"></output>
+
   <script>
+    function handleFileSelect(evt) {
+      var files = evt.target.files; // FileList object
+
+      // files is a FileList of File objects. List some properties.
+      var output = [];
+      for (var i = 0, f; f = files[i]; i++) {
+        output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+      }
+      document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  </script>
+  <!-- <script src="assets/js/jquery-2.1.1.js"> -->
+  <!-- <script>
   function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
 
@@ -72,7 +86,7 @@
     }
 
     document.getElementById('upload').addEventListener('change', handleFileSelect, false);
-  </script>
+  </script> -->
 
 
   <!-- <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,.txt">
