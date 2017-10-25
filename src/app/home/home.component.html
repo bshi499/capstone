@@ -9,7 +9,7 @@
   <form ng-controller = "myCtrl">
      <input type = "file" file-model="files" multiple/>
      <button ng-click = "uploadFile()">Upload</button>
-     <li ng-repeat="file in files">{{file.name}}</li>
+     <!-- <li ng-repeat="file in files">{{file.name}}</li> -->
   </form>
   <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
   <script>
@@ -40,12 +40,15 @@
                                                           }
     }]);
   </script>
+  <br />
+  <br />
   <form>
-    <input id="upload" type=file accept=".txt" name="files[]" size=30>
+    <input id="upload" type=file accept=".txt" name="files[]" size=30 (change)="changeListener($event)">
   </form>
 
-  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html"></textarea>
+  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
 
+  <!--script src="assets/js/jquery-2.1.1.js"-->
   <script>
   function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
@@ -58,7 +61,8 @@
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
           return function(e) {
-
+            var text = e.target.result;
+            console.log(text);
             jQuery( '#ms_word_filtered_html' ).val( e.target.result );
           };
         })(f);
@@ -69,11 +73,40 @@
 
     document.getElementById('upload').addEventListener('change', handleFileSelect, false);
   </script>
+
+
+  <!-- <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,.txt">
+
+  <script>
+  function fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+        let file: File = fileList[0];
+        let formData:FormData = new FormData();
+        formData.append('uploadFile', file, file.name);
+        let headers = new Headers();
+        /** No need to include Content-Type in Angular 4 */
+        //headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+        this.http.post(`${this.apiEndPoint}`, formData, options)
+            .map(res => res.json())
+            .catch(error => Observable.throw(error))
+            .subscribe(
+                data => console.log('success'),
+                error => console.log(error)
+            )
+    }
+  }
+  </script> -->
 </div>
 
 <!--This command displays material from the calling component-->
 <ng-content></ng-content>
 <!-- property binding -->
+<br />
+<br />
+<br />
 <p>
   <input value="{{myString}}" />
   <input required="{{myBoolean}}" />

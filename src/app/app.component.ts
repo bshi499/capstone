@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TestTitle';
+  title = 'ConCat: Conceptualizer and Categorizer';
   name = 'file';
     file = {
       name: "name from AppComponent",
