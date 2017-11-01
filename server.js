@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var CONTACTS_COLLECTION = "contacts";
+var DOCUMENTS_COLLECTION = "documents";
 
 var app = express();
 app.use(bodyParser.json());
@@ -33,7 +33,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   });
 });
 
-// CONTACTS API ROUTES BELOW
+// DOCUMENTS API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -41,61 +41,61 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-/*  "/api/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
+/*  "/api/documents"
+ *    GET: finds all documents
+ *    POST: creates a new document
  */
 
-app.get("/api/contacts", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+app.get("/api/documents", function(req, res) {
+  db.collection(DOCUMENTS_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to get documents.");
     } else {
       res.status(200).json(docs);
     }
   });
 });
 
-app.post("/api/contacts", function(req, res) {
-  var newContact = req.body;
-  newContact.createDate = new Date();
+app.post("/api/documents", function(req, res) {
+  var newDocument = req.body;
+  newDocument.createDate = new Date();
 
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   }
 
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(DOCUMENTS_COLLECTION).insertOne(newDocument, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
+      handleError(res, err.message, "Failed to create new document.");
     } else {
       res.status(201).json(doc.ops[0]);
     }
   });
 });
 
-/*  "/api/contacts/:id"
- *    GET: find contact by id
- *    PUT: update contact by id
- *    DELETE: deletes contact by id
+/*  "/api/documents/:id"
+ *    GET: find document by id
+ *    PUT: update document by id
+ *    DELETE: deletes document by id
  */
 
-app.get("/api/contacts/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+app.get("/api/documents/:id", function(req, res) {
+  db.collection(DOCUMENTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get contact");
+      handleError(res, err.message, "Failed to get document");
     } else {
       res.status(200).json(doc);
     }
   });
 });
 
-app.put("/api/contacts/:id", function(req, res) {
+app.put("/api/documents/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
-  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+  db.collection(DOCUMENTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to update contact");
+      handleError(res, err.message, "Failed to update document");
     } else {
       updateDoc._id = req.params.id;
       res.status(200).json(updateDoc);
@@ -103,10 +103,10 @@ app.put("/api/contacts/:id", function(req, res) {
   });
 });
 
-app.delete("/api/contacts/:id", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+app.delete("/api/documents/:id", function(req, res) {
+  db.collection(DOCUMENTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
-      handleError(res, err.message, "Failed to delete contact");
+      handleError(res, err.message, "Failed to delete document");
     } else {
       res.status(200).json(req.params.id);
     }

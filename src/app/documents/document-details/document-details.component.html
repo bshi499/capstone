@@ -1,0 +1,29 @@
+<div *ngIf="document" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="document._id">Document Details</h2>
+    <h2 *ngIf="!document._id">New Document</h2>
+  </div>
+</div>
+<div *ngIf="document" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="document-name">Name</label>
+      <input class="form-control" name="document-name" [(ngModel)]="document.name" placeholder="Name"/>
+    </div>
+    <div class="form-group">
+      <label for="document-email">Body</label>
+      <input class="form-control" name="document-body" [(ngModel)]="document.body" placeholder="support@mlab.com"/>
+    </div>
+    <div class="form-group">
+      <label for="document-categories-cluster">Cluster</label>
+      <input class="form-control" name="document-categories-cluster" [(ngModel)]="document.categories.cluster" placeholder="1234567890"/>
+    </div>
+    <div class="form-group">
+      <label for="document-categories-group">Group</label>
+      <input class="form-control" name="document-categories-group" [(ngModel)]="document.categories.group" placeholder="0123456789"/>
+    </div>
+    <button class="btn btn-primary" *ngIf="!document._id" (click)="createDocument(document)">Create</button>
+    <button class="btn btn-info" *ngIf="document._id" (click)="updateDocument(document)">Update</button>
+    <button class="btn btn-danger" *ngIf="document._id" (click)="deleteDocument(document._id)">Delete</button>
+  </form>
+</div>

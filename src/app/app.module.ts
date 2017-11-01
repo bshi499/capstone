@@ -1,26 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// Import for NgModel
+import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FileDetailComponent } from './file-detail.component'
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { DocumentDetailsComponent } from './documents/document-details/document-details.component';
+import { DocumentListComponent } from './documents/document-list/document-list.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { APP_ROUTES_PROVIDER } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactDetailsComponent,
-    ContactListComponent,
-    FileDetailComponent
+    DocumentDetailsComponent,
+    DocumentListComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    // Import FormsModule here so you can bind with ngModel command
     FormsModule,
-    HttpModule
+    HttpModule,
+    APP_ROUTES_PROVIDER
   ],
   providers: [],
   bootstrap: [AppComponent]

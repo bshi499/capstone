@@ -1,0 +1,27 @@
+<p>
+  directory works!
+</p>
+<p>{{item}}</p>
+<br />
+<div class="row">
+  <div class="col-md-5">
+    <h2>Documents</h2>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let document of documents"
+        (click)="selectDocument(document)"
+        [class.active]="document === selectedDocument">
+        {{document.name}}
+      </li>
+    </ul>
+    <button class="btn btn-warning" (click)="createNewDocument()">New</button>
+  </div>
+  <div class="col-md-5 col-md-offset-2">
+    <document-details
+      [document]="selectedDocument"
+      [createHandler]="addDocument"
+      [updateHandler]="updateDocument"
+      [deleteHandler]="deleteDocument">
+    </document-details>
+  </div>
+</div>
