@@ -27,7 +27,7 @@ import { AnalysisComponent } from './analysis/analysis.component';
     HttpModule,
     APP_ROUTES_PROVIDER
   ],
-  providers: [],
+  providers: [DocumentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
