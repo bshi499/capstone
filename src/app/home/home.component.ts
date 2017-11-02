@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Document } from '../document';
+import { DocumentService } from '../document.service';
+
 declare function escape(s:string): string;
 
 @Component({
@@ -8,6 +11,22 @@ declare function escape(s:string): string;
 })
 export class HomeComponent implements OnInit {
   homeTitle = "Welcome to the homepage (file upload)!";
+  description = 'This app can be used to cluster text documnets based on their content.';
+  instructions = 'Upload text files that you would like clusted to the database. Clustering can be run from the analysis page, where results will appear.';
+
+
+  @Input()
+  doc: Document;
+
+  @Input()
+  createHandler: Function;
+
+  createDocument(document: Document) {
+    this.documentService.createDocument(doc).then((newDocument: Document) => {
+      this.createHandler(newDocument);
+    });
+  }
+
   myString = "Testing";
   myBoolean = false;
 
@@ -28,7 +47,7 @@ export class HomeComponent implements OnInit {
 
   public fileString;
 
-  constructor() {
+  constructor(private documentService: DocumentService) {
     this.fileString;
   }
 
