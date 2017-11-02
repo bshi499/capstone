@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DocumentService } from '../document.service';
-import { Document } from '../document';
+import { DocumentService } from './documents/document.service';
+import { Document } from './documents/document';
 
 @Component({
   selector: 'app-root',

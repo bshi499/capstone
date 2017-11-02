@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Document } from '../document';
-import { DocumentService } from '../document.service';
+import { Document } from '../documents/document';
+import { DocumentService } from '../documents/document.service';
 
 declare function escape(s:string): string;
 
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   @Input()
   createHandler: Function;
 
-  createDocument(document: Document) {
+  createDocument(doc: Document) {
     this.documentService.createDocument(doc).then((newDocument: Document) => {
       this.createHandler(newDocument);
     });
