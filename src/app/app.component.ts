@@ -6,7 +6,7 @@ import { Document } from './documents/document';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DocumnentService]
+  providers: [DocumentService]
 })
 export class AppComponent {
   title = 'ConCat: Conceptualizer and Categorizer';
@@ -18,7 +18,7 @@ export class AppComponent {
       body: "body from AppComponent"
     };
 
-  constructor(private documentService: DocumentService, private route: ActivatedRoute) {
+  constructor() {
   }
 
   yell(e) {
