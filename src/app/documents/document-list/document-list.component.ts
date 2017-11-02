@@ -7,8 +7,7 @@ import { DocumentDetailsComponent } from '../document-details/document-details.c
 @Component({
   selector: 'document-list',
   templateUrl: './document-list.component.html',
-  styleUrls: ['./document-list.component.css'],
-  providers: [DocumentService]
+  styleUrls: ['./document-list.component.css']
 })
 export class DocumentListComponent implements OnInit {
 
