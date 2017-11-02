@@ -11,8 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { APP_ROUTES_PROVIDER } from './app.routes';
 import { AnalysisComponent } from './analysis/analysis.component';
-import { DocumentService } from './documents/document.service';
-import { Document } from './documents/document';
 
 @NgModule({
   declarations: [
@@ -29,7 +27,7 @@ import { Document } from './documents/document';
     HttpModule,
     APP_ROUTES_PROVIDER
   ],
-  providers: [DocumentService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
