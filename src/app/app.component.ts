@@ -18,7 +18,7 @@ export class AppComponent {
       body: "body from AppComponent"
     };
 
-  constructor() {
+  constructor(private documentService: DocumentService) {
   }
 
   yell(e) {
