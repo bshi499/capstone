@@ -1,14 +1,5 @@
 <div>
-  <h2>
-  {{description}}
-  <br />
-  <br />
-  <br />
-  {{instructions}}
-  <br />
-  <br />
-</h2>
-<h1>Upload your files here:</h1>
+  <h1>Upload your files here:</h1>
   <form ng-controller = "myCtrl">
      <input type = "file" file-model="files" multiple/>
      <button ng-click = "uploadFile()">Upload</button>
@@ -50,7 +41,7 @@
     <!-- <li ng-repeat="file in files[]">{{file.name}}</li> -->
   <!-- </form> -->
 
-  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html" readonly></textarea>
+  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
 
   <output id="list"></output>
 
