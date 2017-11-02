@@ -1,11 +1,11 @@
 <div>
-  <h1>
-  {{instructions}}
-  <br />
+  <h2>
   {{description}}
   <br />
-  Upload your files here:
-</h1>
+  {{instructions}}
+  <br />
+</h2>
+<h1>Upload your files here:</h1>
   <form ng-controller = "myCtrl">
      <input type = "file" file-model="files" multiple/>
      <button ng-click = "uploadFile()">Upload</button>

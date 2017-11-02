@@ -11,8 +11,8 @@ declare function escape(s:string): string;
 })
 export class HomeComponent implements OnInit {
   homeTitle = "Welcome to the homepage (file upload)!";
-  description = 'This app can be used to cluster text documnets based on their content.';
-  instructions = 'Upload text files that you would like clusted to the database. Clustering can be run from the analysis page, where results will appear.';
+  description = 'This app can be used to cluster text documents based on their content.';
+  instructions = 'Upload text files that you would like clustered to the database. Clustering can be run from the analysis page, where results will appear.';
 
 
   @Input()

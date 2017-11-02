@@ -10,6 +10,7 @@ import { DocumentListComponent } from './documents/document-list/document-list.c
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { APP_ROUTES_PROVIDER } from './app.routes';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { APP_ROUTES_PROVIDER } from './app.routes';
     DocumentDetailsComponent,
     DocumentListComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    AnalysisComponent
   ],
   imports: [
     BrowserModule,
