@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { DocumentService } from './documents/document.service';
 import { Document } from './documents/document';
->>>>>>> michael
 
 @Component({
   selector: 'app-root',
