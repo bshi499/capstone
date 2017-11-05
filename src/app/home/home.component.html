@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
   <h1>Upload your files here:</h1>
   <form ng-controller = "myCtrl">
      <input type = "file" file-model="files" multiple/>
@@ -46,6 +47,26 @@
   <output id="list"></output>
 
   <script>
+=======
+  <section id="desc">
+    <h2 style="text-align:center">{{description}}</h2>
+    <br />
+    <br />
+  </section>
+</div>
+<app-upload-file></app-upload-file>
+<div>
+  <h1>Upload your files here:</h1>
+  {{instructions}}
+  <br />
+  <br />
+  <!-- <form> -->
+  <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" multiple />
+  <!-- </form> -->
+  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
+  <output id="list"></output>
+  <!-- <script>
+>>>>>>> michael
     function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
 
@@ -59,6 +80,7 @@
       }
       document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
     }
+<<<<<<< HEAD
 
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
   </script>
@@ -112,11 +134,18 @@
             )
     }
   }
+=======
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+>>>>>>> michael
   </script> -->
 </div>
 
 <!--This command displays material from the calling component-->
+<<<<<<< HEAD
 <ng-content></ng-content>
+=======
+<!-- <ng-content></ng-content> -->
+>>>>>>> michael
 <!-- property binding -->
 <br />
 <br />
