@@ -1,53 +1,4 @@
 <div>
-<<<<<<< HEAD
-  <h1>Upload your files here:</h1>
-  <form ng-controller = "myCtrl">
-     <input type = "file" file-model="files" multiple/>
-     <button ng-click = "uploadFile()">Upload</button>
-     <!-- <li ng-repeat="file in files">{{file.name}}</li> -->
-  </form>
-  <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-  <script>
-    angular.module('myApp', []).directive('fileModel', ['$parse', function ($parse) {
-      return {
-        restrict: 'A',
-          link: function(scope, element, attrs) {
-            element.bind('change', function(){
-              $parse(attrs.fileModel).assign(scope,element[0].files)
-                scope.$apply();
-            });
-          }
-        };
-     }]).controller('myCtrl', ['$scope', '$http', function($scope, $http){
-       $scope.uploadFile=function(){
-         var fd=new FormData();
-         console.log($scope.files);
-         angular.forEach($scope.files,function(file){
-           fd.append('file',file);
-         });
-         $http.post('http://localhost:1337/mediaobject/upload',fd,
-                                                            {
-                                                            transformRequest: angular.identity,
-                                                            headers: {'Content-Type': undefined}
-                                                            }).success(function(d){
-                                                            console.log(d);
-                                                            })
-                                                          }
-    }]);
-  </script>
-  <br />
-  <br />
-  <!-- <form> -->
-    <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" multiple />
-    <!-- <li ng-repeat="file in files[]">{{file.name}}</li> -->
-  <!-- </form> -->
-
-  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
-
-  <output id="list"></output>
-
-  <script>
-=======
   <section id="desc">
     <h2 style="text-align:center">{{description}}</h2>
     <br />
@@ -66,7 +17,6 @@
   <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
   <output id="list"></output>
   <!-- <script>
->>>>>>> michael
     function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
 
@@ -80,72 +30,12 @@
       }
       document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
     }
-<<<<<<< HEAD
-
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
-  </script>
-  <!-- <script src="assets/js/jquery-2.1.1.js"> -->
-  <!-- <script>
-  function handleFileSelect(evt) {
-      var files = evt.target.files; // FileList object
-
-      // use the 1st file from the list
-      f = files[0];
-
-      var reader = new FileReader();
-
-      // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-          return function(e) {
-            var text = e.target.result;
-            console.log(text);
-            jQuery( '#ms_word_filtered_html' ).val( e.target.result );
-          };
-        })(f);
-
-        // Read in the image file as a data URL.
-        reader.readAsText(f);
-    }
-
-    document.getElementById('upload').addEventListener('change', handleFileSelect, false);
-  </script> -->
-
-
-  <!-- <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,.txt">
-
-  <script>
-  function fileChange(event) {
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-        let file: File = fileList[0];
-        let formData:FormData = new FormData();
-        formData.append('uploadFile', file, file.name);
-        let headers = new Headers();
-        /** No need to include Content-Type in Angular 4 */
-        //headers.append('Content-Type', 'multipart/form-data');
-        headers.append('Accept', 'application/json');
-        let options = new RequestOptions({ headers: headers });
-        this.http.post(`${this.apiEndPoint}`, formData, options)
-            .map(res => res.json())
-            .catch(error => Observable.throw(error))
-            .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
-            )
-    }
-  }
-=======
-    document.getElementById('files').addEventListener('change', handleFileSelect, false);
->>>>>>> michael
   </script> -->
 </div>
 
 <!--This command displays material from the calling component-->
-<<<<<<< HEAD
-<ng-content></ng-content>
-=======
 <!-- <ng-content></ng-content> -->
->>>>>>> michael
 <!-- property binding -->
 <br />
 <br />

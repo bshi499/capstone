@@ -7,22 +7,12 @@ import { DocumentDetailsComponent } from '../document-details/document-details.c
 @Component({
   selector: 'document-list',
   templateUrl: './document-list.component.html',
-<<<<<<< HEAD
-  styleUrls: ['./document-list.component.css'],
-  providers: [DocumentService]
-})
-export class DocumentListComponent implements OnInit {
-
-  documents: Document[]
-  selectedDocument: Document
-=======
   styleUrls: ['./document-list.component.css']
 })
 export class DocumentListComponent implements OnInit {
 
   documents: Document[];
   selectedDocument: Document;
->>>>>>> michael
   item: string;
 
   constructor(private documentService: DocumentService, private route: ActivatedRoute) {
