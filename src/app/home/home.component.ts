@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UploadFileComponent } from './upload-file/upload-file.component';
+import { UploadFileComponent } from '../upload-file/upload-file.component';
 declare function escape(s:string): string;
 
 @Component({

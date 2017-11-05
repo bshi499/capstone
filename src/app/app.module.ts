@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { APP_ROUTES_PROVIDER } from './app.routes';
 import { AnalysisComponent } from './analysis/analysis.component';
-import { UploadFileComponent } from './home/upload-file/upload-file.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
