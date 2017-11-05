@@ -10,8 +10,11 @@ import { DocumentListComponent } from './documents/document-list/document-list.c
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { APP_ROUTES_PROVIDER } from './app.routes';
+<<<<<<< HEAD
+=======
 import { AnalysisComponent } from './analysis/analysis.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+>>>>>>> michael
 
 @NgModule({
   declarations: [
@@ -19,9 +22,13 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     DocumentDetailsComponent,
     DocumentListComponent,
     HomeComponent,
+<<<<<<< HEAD
+    AboutComponent
+=======
     AboutComponent,
     AnalysisComponent,
     UploadFileComponent
+>>>>>>> michael
   ],
   imports: [
     BrowserModule,
