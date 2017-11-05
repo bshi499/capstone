@@ -33,8 +33,13 @@ export class HomeComponent implements OnInit {
   alertMe() {
     alert('Testing alert!');
   }
+
   fireYellEvent(e) {
     this.onYell.emit(e);
+  }
+
+  uploadAlert() {
+    alert('Document upload complete!');
   }
 
   public fileString;
@@ -73,6 +78,8 @@ export class HomeComponent implements OnInit {
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
+      uploadAlert();
+
     };
 
     myReader.readAsText(file);
