@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { UploadFileComponent } from '../upload-file/upload-file.component';
 import { Document } from '../documents/document';
 import { DocumentService } from '../documents/document.service';
->>>>>>> michael
 declare function escape(s:string): string;
 
 @Component({
@@ -14,11 +11,6 @@ declare function escape(s:string): string;
 })
 export class HomeComponent implements OnInit {
   homeTitle = "Welcome to the homepage (file upload)!";
-<<<<<<< HEAD
-  myString = "Testing";
-  myBoolean = false;
-
-=======
   description = 'This app can be used to cluster text documents based on their content using an affinity propagation method.';
   instructions = 'Upload text files that you would like clustered to the database. Clustering can be run from the analysis page, where results will appear.';
   myString = "Testing";
@@ -26,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   @Input() doc: Document;
   selectedDocument: Document;
->>>>>>> michael
   @Input() file;
   @Output() onYell = new EventEmitter();
 
@@ -35,13 +26,10 @@ export class HomeComponent implements OnInit {
     body: "This is the body of the file."
   };
 
-<<<<<<< HEAD
-=======
   constructor(private documentService: DocumentService) {
     this.fileString;
   }
 
->>>>>>> michael
   alertMe() {
     alert('Testing alert!');
   }
@@ -51,13 +39,7 @@ export class HomeComponent implements OnInit {
 
   public fileString;
 
-<<<<<<< HEAD
-  constructor() {
-    this.fileString;
-  }
-=======
 
->>>>>>> michael
 
   ngOnInit() {
   }
@@ -78,11 +60,8 @@ export class HomeComponent implements OnInit {
 
     var file:File = inputValue.files[0];
     var myReader:FileReader = new FileReader();
-<<<<<<< HEAD
-=======
     var docEntry:Document = new Document();
     docEntry.name = file.name;
->>>>>>> michael
 
     myReader.onloadend = (e) => {
       // you can perform an action with readed data here
@@ -92,18 +71,13 @@ export class HomeComponent implements OnInit {
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-<<<<<<< HEAD
-=======
       docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
->>>>>>> michael
     };
 
     myReader.readAsText(file);
   }
 
-<<<<<<< HEAD
-=======
   selectDocument(document: Document) {
     this.selectedDocument = document
   }
@@ -122,6 +96,5 @@ export class HomeComponent implements OnInit {
     this.selectDocument(document);
   }
 
->>>>>>> michael
 
 }
