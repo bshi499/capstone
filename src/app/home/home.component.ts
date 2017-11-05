@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   myBoolean = false;
 
   @Input() doc: Document;
+  selectedDocument: Document;
   @Input() file;
   @Output() onYell = new EventEmitter();
 

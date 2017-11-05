@@ -11,8 +11,8 @@ import { DocumentDetailsComponent } from '../document-details/document-details.c
 })
 export class DocumentListComponent implements OnInit {
 
-  documents: Document[]
-  selectedDocument: Document
+  documents: Document[];
+  selectedDocument: Document;
   item: string;
 
   constructor(private documentService: DocumentService, private route: ActivatedRoute) {
