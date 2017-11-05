@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Document } from '../documents/document';
+import { DocumentService } from '../documents/document.service';
 
 @Component({
   selector: 'app-upload-file',
