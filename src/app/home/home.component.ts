@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit {
     body: "This is the body of the file."
   };
 
+  constructor(private documentService: DocumentService) {
+    this.fileString;
+  }
+
   alertMe() {
     alert('Testing alert!');
   }
@@ -32,9 +36,7 @@ export class HomeComponent implements OnInit {
 
   public fileString;
 
-  constructor() {
-    this.fileString;
-  }
+
 
   ngOnInit() {
   }
@@ -55,6 +57,8 @@ export class HomeComponent implements OnInit {
 
     var file:File = inputValue.files[0];
     var myReader:FileReader = new FileReader();
+    var docEntry:Document = new Document();
+    docEntry.name = file.name;
 
     myReader.onloadend = (e) => {
       // you can perform an action with readed data here
@@ -64,9 +68,29 @@ export class HomeComponent implements OnInit {
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
+      docEntry.body = myReader.result;
+      this.documentService.createDocument(docEntry);
     };
 
     myReader.readAsText(file);
+  }
+
+  selectDocument(document: Document) {
+    this.selectedDocument = document
+  }
+
+  createNewDocument() {
+    var document: Document = {
+      name: '',
+      body: '',
+      categories: {
+        cluster: '',
+        group: ''
+      }
+    };
+
+    // By default, a newly-created document will have the selected state.
+    this.selectDocument(document);
   }
 
 

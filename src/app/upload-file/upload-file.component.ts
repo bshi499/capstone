@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadFileComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  document: Document;
+
+  constructor (private documentService: DocumentService) {}
+
+  createDocument(document: Document) {
+    this.documentService.createDocument(document);
+  }
 
   ngOnInit() {
   }
