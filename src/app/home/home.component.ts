@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
 
   changeListener($event) : void {
     this.readThis($event.target);
+    this.uploadAlert();
   }
 
   readThis(inputValue: any) : void {
@@ -78,8 +79,6 @@ export class HomeComponent implements OnInit {
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
-      uploadAlert();
-
     };
 
     myReader.readAsText(file);
