@@ -7,6 +7,14 @@ body{
   padding: 20px;
 }
 
+desc{
+  font-family: verdana;
+  letter-spacing: 0.1em;
+  color: #606060;
+  background: #eee;
+  padding: 20px;
+}
+
 h1,h2,h3{
   font-weight: normal;
   margin-top: 0;
