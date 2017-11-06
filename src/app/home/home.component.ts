@@ -33,8 +33,13 @@ export class HomeComponent implements OnInit {
   alertMe() {
     alert('Testing alert!');
   }
+
   fireYellEvent(e) {
     this.onYell.emit(e);
+  }
+
+  uploadAlert() {
+    alert('Document upload complete!');
   }
 
   public fileString;
@@ -45,24 +50,8 @@ export class HomeComponent implements OnInit {
   }
 
   changeListener($event) : void {
-    this.readMultiple($event.target);
-  }
-
-  readMultiple(inputFiles: any) {
-    var files = inptFiles.files;
-    Object.keys(files).forEach(i => {
-      var file = files[i];
-      var reader = new FileReader();
-      var docEntry:Document = new Document();
-      docEntry.name = file.name;
-      reader.onload = (e) => {
-        this.fileString = reader.result;
-        // console.log(this.fileString);
-        docEntry.body = reader.result;
-        this.documentService.createDocument(docEntry);
-      }
-      reader.readAsBinaryString(file);
-    });
+    this.readThis($event.target);
+    this.uploadAlert();
   }
 
   readThis(inputValue: any) : void {
@@ -82,7 +71,7 @@ export class HomeComponent implements OnInit {
 
     myReader.onloadend = (e) => {
       // you can perform an action with readed data here
-      // console.log(myReader.result);
+      console.log(myReader.result);
       this.fileString = myReader.result;
       console.log(this.fileString);
       // Both below methods work.
