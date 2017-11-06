@@ -11,7 +11,7 @@ const APP_ROUTES = [
   { path: 'about', component: AboutComponent },
   { path: '', component: HomeComponent },
   { path: 'documents', component: DocumentListComponent },
-  { path: 'documents/:item', component: DocumentListComponent },
+  // { path: 'documents/:item', component: DocumentListComponent },
   { path: 'analysis', component: AnalysisComponent }
 ];
 
