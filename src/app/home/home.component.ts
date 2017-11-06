@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeListener($event) : void {
-    this.readMultiple($event.target);
+    this.readThis($event.target);
   }
 
   readMultiple(e) {
