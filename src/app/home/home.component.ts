@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
 
     myReader.onloadend = (e) => {
       // you can perform an action with readed data here
-      // console.log(myReader.result);
+      console.log(myReader.result);
       this.fileString = myReader.result;
       console.log(this.fileString);
       // Both below methods work.
