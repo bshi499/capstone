@@ -71,7 +71,9 @@ export class HomeComponent implements OnInit {
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = myReader.result;
+      var string = myReader.result;
+	  console.log("String length: " + string.length);
+	  docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
     };
 
