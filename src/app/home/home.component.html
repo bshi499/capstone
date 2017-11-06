@@ -12,11 +12,7 @@
   <br />
   <br />
   <!-- <form> -->
-  <form class="" action="index.html" method="post">
-      <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 multiple />
-      <button type="button" (click)="changeListener($event)">Submit</button>
-  </form>
-
+  <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" multiple />
   <!-- </form> -->
   <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html">{{fileContent}}</textarea>
   <output id="list"></output>
