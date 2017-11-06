@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
         //reader.result or file
         this.fileString = reader.result;
         console.log(this.fileString);
-        docEntry.body = reader.result;
+        docEntry.body = myReader.result;
         this.documentService.createDocument(docEntry);
       }
       reader.readAsBinaryString(file);
