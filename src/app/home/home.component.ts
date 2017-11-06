@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
       reader.onload = (e) => {
         //servercall for uploading or reading the files one by one
         //reader.result or file
-        this.fileString = reader.result;
+        this.fileString = myReader.result;
         console.log(this.fileString);
       }
       reader.readAsBinaryString(file);
