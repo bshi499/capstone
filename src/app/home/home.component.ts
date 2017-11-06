@@ -71,8 +71,11 @@ export class HomeComponent implements OnInit {
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      var string = myReader.result;
+      
+	  var string = myReader.result;
+	  //var fluff = ["Message-ID:", "Date:", "From:", "To:", "Subject:", "Cc: ", "Mime-Version: 1.0", "Content-Type:", "Content-Transfer-Encoding:", "Bcc:", "X-"];
 	  console.log("my string: " + string);
+	  console.log("string length: " + string.length);
 	  docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
     };
