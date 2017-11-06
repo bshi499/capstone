@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       var string = myReader.result;
-	  console.log("String length: " + string.length);
+	  console.log("my string: " + string);
 	  docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
     };
