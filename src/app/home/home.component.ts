@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
     this.readMultiple($event.target);
   }
 
-  readMultiple(e) {
-    const files = e.currentTarget.files;
+  readMultiple(e: any) {
+    var files = e.currentTarget.files;
     Object.keys(files).forEach(i => {
-      const file = files[i];
-      const reader = new FileReader();
+      var file = files[i];
+      var reader = new FileReader();
       reader.onload = (e) => {
         //servercall for uploading or reading the files one by one
         //reader.result or file
