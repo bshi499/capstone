@@ -48,20 +48,36 @@ export class HomeComponent implements OnInit {
     this.readMultiple($event.target);
   }
 
-  readMultiple(e: any) {
-    var files = e.currentTarget.files;
-    Object.keys(files).forEach(i => {
-      var file = files[i];
-      var reader = new FileReader();
-      reader.onload = (e) => {
-        //servercall for uploading or reading the files one by one
-        //reader.result or file
-        this.fileString = reader.result;
-        console.log(this.fileString);
-      }
-      reader.readAsBinaryString(file);
-    });
+  // readMultiple(e: any) {
+  //   var files = e.currentTarget.files;
+  //   Object.keys(files).forEach(i => {
+  //     var file = files[i];
+  //     var reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       //servercall for uploading or reading the files one by one
+  //       //reader.result or file
+  //       this.fileString = reader.result;
+  //       console.log(this.fileString);
+  //     }
+  //     reader.readAsBinaryString(file);
+  //   });
+  // }
+
+  function readMultiple(files) {
+  var reader = new FileReader();
+  function readFile(index) {
+    if( index >= files.length ) return;
+    var file = files[index];
+    reader.onload = function(e) {
+      // get file content
+      var bin = e.target.result;
+      // do sth with bin
+      readFile(index+1)
+    }
+    reader.readAsBinaryString(file);
   }
+  readFile(0);
+}
 
   readThis(inputValue: any) : void {
     var output = [];
