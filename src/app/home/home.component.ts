@@ -86,8 +86,7 @@ export class HomeComponent implements OnInit {
 		console.log(array[i]);
 	  }
 	  
-	  var word = splitter.join();
-	  console.log("my word: " + word);
+	  console.log("my word is ");
 	  
 	  docEntry.body = myReader.result;
       this.documentService.createDocument(docEntry);
