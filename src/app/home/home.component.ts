@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
       console.log("line:" + line);
 	  
 	  
-	  docEntry.body = line;
+	  docEntry.body = newStr;
       this.documentService.createDocument(docEntry);
     };
 
