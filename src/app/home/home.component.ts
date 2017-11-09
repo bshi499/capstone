@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit {
 	  var num = string.indexOf("X-FileName: ") + 12;
 	  var newStr = string.substring(num, string.length);
 	  var find = newStr.indexOf('\n') + 1;
-	  var line = newStr.substring(find, newStr.length);
-      console.log("line:" + line);
+	  newStr = newStr.substring(find, newStr.length);
+      console.log("text:" + newStr);
 	  
 	  
 	  docEntry.body = newStr;
