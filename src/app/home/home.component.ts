@@ -81,9 +81,9 @@ export class HomeComponent implements OnInit {
 	  console.log("num: " + num);
 	  var newStr = string.substring(intee, string.length);
 	  console.log("new string:" + newStr);
-	  myReader.result = newStr;
+	  //myReader.result = newStr;
 	  
-	  docEntry.body = myReader.result;
+	  docEntry.body = newStr;
       this.documentService.createDocument(docEntry);
     };
 
