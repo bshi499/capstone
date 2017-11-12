@@ -117,6 +117,16 @@ app.delete("/api/documents/:id", function(req, res) {
 //   res.send('what???', 404);
 // });
 
-app.get('*', function(req, res){
-  res.sendFile(path.resolve('app/index.html'));
+// app.get('*', function(req, res){
+//   res.sendFile(path.resolve('app/index.html'));
+// });
+
+// Handle 404
+app.use(function(req, res) {
+   res.send('404: Page not Found', 404);
+});
+
+// Handle 500
+app.use(function(error, req, res, next) {
+   res.send('500: Internal Server Error', 500);
 });
