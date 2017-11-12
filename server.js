@@ -123,7 +123,8 @@ app.delete("/api/documents/:id", function(req, res) {
 
 // Handle 404
 app.use(function(req, res) {
-   res.send('404: Page not Found', 404);
+  //  res.send('404: Page not Found', 404);
+  res.sendFile("index.html", { root: '.' });
 });
 
 // Handle 500
