@@ -9,17 +9,6 @@ import { DocumentService } from '../documents/document.service';
 })
 export class UploadFileComponent implements OnInit {
 
-  @Input()
-  document: Document;
-
-  constructor (private documentService: DocumentService) {}
-
-  createDocument(document: Document) {
-    this.documentService.createDocument(document);
-  }
-
-
-
   uploadTitle = "File Upload";
   description = 'This app can be used to cluster text documents based on their content using an affinity propagation method.';
   instructions = 'Upload text files that you would like clustered to the database. Clustering can be run from the analysis page, where results will appear.';
