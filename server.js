@@ -12,6 +12,16 @@ app.use(bodyParser.json());
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
+// Handle 404
+app.use(function(req, res) {
+   res.send('404: Page not Found', 404);
+});
+
+// Handle 500
+app.use(function(error, req, res, next) {
+   res.send('500: Internal Server Error', 500);
+});
+
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 
@@ -113,6 +123,6 @@ app.delete("/api/documents/:id", function(req, res) {
   });
 });
 
-app.get('*', function(req, res){
-  res.send('what???', 404);
-});
+// app.get('*', function(req, res){
+//   res.send('what???', 404);
+// });
