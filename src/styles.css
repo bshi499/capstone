@@ -33,6 +33,30 @@ h1,h2,h3{
   margin: 0 auto;
 }*/
 
+.main-title em.navy {
+  color: #000080;
+}
+
+.main-title em.blue {
+  color: #0000CD;
+}
+
+.main-title em.purple {
+  color: #7B68EE;
+}
+
+h1.main-title-navy {
+  color: #000080;
+}
+
+h1.main-title-blue {
+  color: #0000CD;
+}
+
+h1.main-title-purple {
+  color: #7B68EE;
+}
+
 h1.center-title {
   text-align: center;
   font-weight: bold;
