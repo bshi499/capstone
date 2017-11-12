@@ -123,11 +123,12 @@ app.delete("/api/documents/:id", function(req, res) {
 
 // Handle 404
 app.use(function(req, res) {
-  //  res.send('404: Page not Found', 404);
+  // res.send('404: Page not Found', 404);
   res.sendFile("index.html", { root: '.' });
 });
 
 // Handle 500
 app.use(function(error, req, res, next) {
-   res.send('500: Internal Server Error', 500);
+  //  res.send('500: Internal Server Error', 500);
+   res.sendFile("index.html", { root: '.' });
 });
