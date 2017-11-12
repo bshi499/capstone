@@ -18,4 +18,4 @@ const APP_ROUTES = [
   { path: '**', component: NotFoundComponent }
 ];
 
-export const APP_ROUTES_PROVIDER = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTES_PROVIDER = RouterModule.forRoot(APP_ROUTES, { useHash: true });
