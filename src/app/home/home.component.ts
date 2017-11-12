@@ -67,9 +67,9 @@ export class HomeComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
-    docEntry.wordvec = file.webkitRelativePath;
+    docEntry.wordvec = file.type;
     myReader.onloadend = (e) => {
-      // you can perform an action with readed data here
+      // you can perform an action with read data here
       console.log(myReader.result);
       this.fileString = myReader.result;
       // console.log(this.fileString);
