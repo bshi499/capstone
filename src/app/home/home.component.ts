@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
     var document: Document = {
       name: '',
       body: '',
+      wordvec: '',
       categories: {
         cluster: '',
         group: ''
