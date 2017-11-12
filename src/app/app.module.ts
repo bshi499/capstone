@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { APP_ROUTES_PROVIDER } from './app.routes';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     HomeComponent,
     AboutComponent,
     AnalysisComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
