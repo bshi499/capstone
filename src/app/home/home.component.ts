@@ -33,8 +33,13 @@ export class HomeComponent implements OnInit {
   alertMe() {
     alert('Testing alert!');
   }
+
   fireYellEvent(e) {
     this.onYell.emit(e);
+  }
+
+  uploadAlert() {
+    alert('Document upload complete!');
   }
 
   public fileString;
@@ -62,17 +67,19 @@ export class HomeComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
-
+    docEntry.wordvec = file.type;
     myReader.onloadend = (e) => {
-      // you can perform an action with readed data here
+      // you can perform an action with read data here
       console.log(myReader.result);
       this.fileString = myReader.result;
-      console.log(this.fileString);
+      // console.log(this.fileString);
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
+
       this.documentService.createDocument(docEntry);
+      this.uploadAlert();
     };
 
     myReader.readAsText(file);
@@ -86,6 +93,7 @@ export class HomeComponent implements OnInit {
     var document: Document = {
       name: '',
       body: '',
+      wordvec: '',
       categories: {
         cluster: '',
         group: ''
@@ -95,6 +103,4 @@ export class HomeComponent implements OnInit {
     // By default, a newly-created document will have the selected state.
     this.selectDocument(document);
   }
-
-
 }
