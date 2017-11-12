@@ -12,7 +12,9 @@ const APP_ROUTES = [
   { path: '', component: HomeComponent },
   { path: 'documents', component: DocumentListComponent },
   // { path: 'documents/:item', component: DocumentListComponent },
-  { path: 'analysis', component: AnalysisComponent }
+  { path: 'analysis', component: AnalysisComponent },
+  { path: '404', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 export const APP_ROUTES_PROVIDER = RouterModule.forRoot(APP_ROUTES);
