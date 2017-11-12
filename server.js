@@ -120,6 +120,9 @@ app.delete("/api/documents/:id", function(req, res) {
 // app.get('*', function(req, res){
 //   res.sendFile(path.resolve('app/index.html'));
 // });
+app.get('*', function (req, res, next) {
+  res.sendFile('dist/index.html', { root: __dirname });
+});
 
 // Handle 404
 // app.use(function(req, res) {
