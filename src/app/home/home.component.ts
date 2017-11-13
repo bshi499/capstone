@@ -73,14 +73,12 @@ export class HomeComponent implements OnInit {
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       
 	  var string = myReader.result;
-	  var num = string.indexOf("X-FileName: ") + 12;
-	  var newStr = string.substring(num, string.length);
-	  var find = newStr.indexOf('\n') + 1;
-	  newStr = newStr.substring(find, newStr.length);
-      console.log("text:" + newStr);
+	  var newString = string.replace(/.+:+.{0,100}/g,"");
+	  var news = newString.replace(/\r?\n|\r/g,"");
+	  console.log("news length: " + news.length);
+ 	  console.log(news);
 	  
-	  
-	  docEntry.body = newStr;
+	  docEntry.body = news; // change this line of code
       this.documentService.createDocument(docEntry);
     };
 
