@@ -74,11 +74,11 @@ export class HomeComponent implements OnInit {
       
 	  var string = myReader.result;
 	  var newString = string.replace(/.+:+.{0,100}/g,"");
-	  var news = newString.replace(/\r?\n|\r/g,"");
-	  console.log("news length: " + news.length);
- 	  console.log(news);
+	  newString = newString.replace(/\r?\n|\r/g,"");
+	  console.log("news length: " + newString.length);
+ 	  console.log(newString);
 	  
-	  docEntry.body = news; // change this line of code
+	  docEntry.body = newString; // change this line of code
       this.documentService.createDocument(docEntry);
     };
 
