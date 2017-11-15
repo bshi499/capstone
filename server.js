@@ -5,6 +5,9 @@ var ObjectID = mongodb.ObjectID;
 
 var DOCUMENTS_COLLECTION = "documents";
 
+var child_proc = require("child_process");
+var circJSON = require("circular-json");
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -112,6 +115,69 @@ app.delete("/api/documents/:id", function(req, res) {
     }
   });
 });
+
+
+
+
+/*
+    /api/uploads/
+    
+    - receives the file string from the upload component
+      to be converted into vector
+*/
+
+app.post("/api/uploads/", function(req, res) {
+
+  var fileText = req.body.text;
+  var finalOutput = '';
+  
+  // to convert input into array for testing
+  var arr = [];
+  var temp = '';
+  var num = 0;
+    
+  for(var i = 0; i <= fileText.length; i++)
+  {
+      if(fileText[i] != ' ' && i != fileText.length)
+      {
+        temp += fileText[i];
+      }
+      else
+      {
+        arr[num] = temp;
+        num++;
+        temp = '';
+      }
+  }
+  // end block
+
+
+  // python communication
+
+  var spawn = child_proc.spawn;
+  var py    = spawn('python', ['email2vector.py']);
+
+  py.stdout.on('data', function(data){
+    finalOutput += data.toString();
+  });
+
+  py.stdout.on('end', function(){
+    // console.log("Output ", finalOutput);
+    res.send(circJSON.stringify(finalOutput));
+  });
+
+  py.stdin.write(JSON.stringify(arr));
+  py.stdin.end();
+
+
+  py.on('exit', function (code, signal) {
+    console.log("child process exited with code " + code + " and signal " + signal);
+  });
+});
+
+
+
+
 
 // app.get('*', function(req, res){
 //   res.send('what???', 404);
