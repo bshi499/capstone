@@ -67,7 +67,7 @@ export class UploadFileComponent implements OnInit {
       
       // post file data to server via '/api/uploads'
       // receive post-conversion data and places it into the wordvec field, then creates the document
-      // conversion must be handled server side as child process and python cannot be done in the frontend
+      // conversion must be handled server side as child process & python cannot be done in the frontend
       this.http.post(this.uploadUrl, sendInput).map((res:Response) => (
             res.json()
           )).subscribe(data => {
