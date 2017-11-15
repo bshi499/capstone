@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Document } from '../documents/document';
 import { DocumentService } from '../documents/document.service';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-upload-file',
@@ -16,7 +19,9 @@ export class UploadFileComponent implements OnInit {
   @Input() doc: Document;
   selectedDocument: Document;
 
-  constructor(private documentService: DocumentService) {
+  private uploadUrl = '/api/uploads';
+
+  constructor(private documentService: DocumentService, private http: Http) {
     this.fileString;
   }
 
@@ -30,6 +35,7 @@ export class UploadFileComponent implements OnInit {
   }
 
   changeListener($event) : void {
+    // this.readMultiple($event.target);
     this.readThis($event.target);
   }
 
@@ -49,21 +55,76 @@ export class UploadFileComponent implements OnInit {
     docEntry.name = file.name;
     docEntry.wordvec = file.type;
     myReader.onloadend = (e) => {
+      
       // you can perform an action with read data here
       console.log(myReader.result);
       this.fileString = myReader.result;
+
+      document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
+      docEntry.body = myReader.result;
+
+      var sendInput = {text: this.fileString};
+      
+      // post file data to server via '/api/uploads'
+      // receive post-conversion data and places it into the wordvec field, then creates the document
+      // conversion must be handled server side as child process and python cannot be done in the frontend
+      this.http.post(this.uploadUrl, sendInput).map((res:Response) => (
+            res.json()
+          )).subscribe(data => {
+
+          //console.log("<Vector>: " + data);
+          
+          docEntry.wordvec = data;
+
+          this.documentService.createDocument(docEntry);
+      });
+
       // console.log(this.fileString);
       // Both below methods work.
-      //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
+      //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;      
+      
+
+      // original
+      /* 
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
 
       this.documentService.createDocument(docEntry);
       this.uploadAlert();
+      */
+
     };
 
     myReader.readAsText(file);
+    this.uploadAlert();
   }
+
+/*  
+
+  readMultiple(inputFiles: any) {
+    var files = inputFiles.files;
+
+    Object.keys(files).forEach(i => {
+
+      var file = files[i];
+      var reader = new FileReader();
+      var docEntry:Document = new Document();
+      docEntry.name = file.name;
+      reader.onload = (e) => {
+
+        this.fileString = reader.result;
+        // console.log(this.fileString);
+
+        docEntry.body = reader.result;
+        
+        this.documentService.createDocument(docEntry);
+      }
+
+      reader.readAsBinaryString(file);
+    });
+  }
+
+*/
 
   selectDocument(document: Document) {
     this.selectedDocument = document
