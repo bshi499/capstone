@@ -16,6 +16,7 @@ export class AppComponent {
       name: "name from AppComponent",
       body: "body from AppComponent"
     };
+  constructor(private authService: AuthService) {}
   yell(e) {
     alert("I am yelling.");
     console.log(e);
