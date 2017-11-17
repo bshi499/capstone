@@ -5,7 +5,8 @@ import { AUTH_CONFIG } from './auth0-variables';
 import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
-declare var auth0: any;
+//declare var auth0: any;
+var auth0 = require('auth0.js');
 
 @Injectable()
 export class AuthService {
