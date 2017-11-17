@@ -6,7 +6,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 import * as { auth0 } from 'auth0.js';
 
 // Avoid name not found warnings
-//declare var auth0: any;
+declare var auth0: any;
 // var auth0 = require('auth0.js');
 
 @Injectable()
