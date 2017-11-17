@@ -10,6 +10,6 @@ export const AUTH_CONFIG: AuthConfig = {
   CLIENT_ID: 'MJI79Vb2ehB828jwYwyhGn5hgoJL7DaD',
   CLIENT_DOMAIN: 'msctech.auth0.com',
   AUDIENCE: 'concat-test-api',
-  REDIRECT: 'https://con-cat.herokuapp.com/callback',
+  REDIRECT: 'https://infinite-falls-81287.herokuapp.com/callback',
   SCOPE: 'openid'
 };
