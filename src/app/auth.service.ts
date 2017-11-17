@@ -3,17 +3,17 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AUTH_CONFIG } from './auth0-variables';
 import { tokenNotExpired } from 'angular2-jwt';
-import * as { auth0 } from 'auth0.js';
+import { auth0 } from 'auth0.js';
 
 // Avoid name not found warnings
-declare var auth0: any;
+// declare var auth0: any;
 // var auth0 = require('auth0.js');
 
 @Injectable()
 export class AuthService {
   // Create Auth0 web auth instance
   // @TODO: Update AUTH_CONFIG and remove .example extension in src/app/auth/auth0-variables.ts.example
-  auth0 = new auth0.WebAuth({
+  var auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.CLIENT_ID,
     domain: AUTH_CONFIG.CLIENT_DOMAIN
   });
