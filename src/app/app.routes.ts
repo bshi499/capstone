@@ -15,7 +15,7 @@ const APP_ROUTES = [
 
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'upload', component: UploadFileComponent, canActivate: [AuthGuard] }
+  { path: 'upload', component: UploadFileComponent, canActivate: [AuthGuard] },
   { path: 'analysis', component: AnalysisComponent, canActivate: [AuthGuard] },
   { path: 'documents', component: DocumentListComponent, canActivate: [AuthGuard]  },
   // { path: 'documents/:item', component: DocumentListComponent },
