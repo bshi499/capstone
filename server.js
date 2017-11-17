@@ -1,9 +1,9 @@
 'use strict';
 
 
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongodb = require("mongodb");
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('mongodb');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const cors = require('cors');
