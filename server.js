@@ -22,7 +22,7 @@ app.use(express.static(distDir));
 app.use(cors());
 
 const authCheck = jwt({
-  secret = jwks.expressJwtSecret({
+  secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
