@@ -6,13 +6,13 @@ import { tokenNotExpired } from 'angular2-jwt';
 //import { auth0 } from 'auth0.js';
 
 // Avoid name not found warnings
-declare var auth0: any;
+declare var webauth: any;
 // var auth0 = require('auth0.js');
 
 @Injectable()
 export class AuthService {
   // Create Auth0 web auth instance
-  var webauth = new auth0.WebAuth({
+  webauth = new auth0.WebAuth({
     domain: AUTH_CONFIG.CLIENT_DOMAIN,
     clientID: AUTH_CONFIG.CLIENT_ID
   });
