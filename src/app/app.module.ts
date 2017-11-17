@@ -15,8 +15,8 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DocumentService } from './documents/document.service';
 import { CallbackComponent } from './callback/callback.component';
-import { AuthGuard } from '.auth-guard.service';
-import { AuthService } from '.auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
