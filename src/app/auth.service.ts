@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AUTH_CONFIG } from './auth0-variables';
 import { tokenNotExpired } from 'angular2-jwt';
-import * as { auth0 } from 'auth0.js';
+import { auth0 } from 'auth0.js';
 
 // Avoid name not found warnings
 //declare var auth0: any;
@@ -13,9 +13,9 @@ import * as { auth0 } from 'auth0.js';
 export class AuthService {
   // Create Auth0 web auth instance
   // @TODO: Update AUTH_CONFIG and remove .example extension in src/app/auth/auth0-variables.ts.example
-  var auth0 = new auth0.WebAuth({
-    clientID: AUTH_CONFIG.CLIENT_ID,
-    domain: AUTH_CONFIG.CLIENT_DOMAIN
+  var webauth = new auth0.WebAuth({
+    domain: AUTH_CONFIG.CLIENT_DOMAIN,
+    clientID: AUTH_CONFIG.CLIENT_ID
   });
 
   // Create a stream of logged in status to communicate throughout app
@@ -38,7 +38,7 @@ export class AuthService {
   login() {
     // Auth0 authorize request
     // Note: nonce is automatically generated: https://auth0.com/docs/libraries/auth0js/v8#using-nonce
-    this.auth0.authorize({
+    this.webauth.authorize({
       responseType: 'token id_token',
       redirectUri: AUTH_CONFIG.REDIRECT,
       audience: AUTH_CONFIG.AUDIENCE,
@@ -48,7 +48,7 @@ export class AuthService {
 
   handleAuth() {
     // When Auth0 hash parsed, get profile
-    this.auth0.parseHash((err, authResult) => {
+    this.webauth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this._getProfile(authResult);
@@ -62,7 +62,7 @@ export class AuthService {
 
   private _getProfile(authResult) {
     // Use access token to retrieve user's profile and set session
-    this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
+    this.webauth.client.userInfo(authResult.accessToken, (err, profile) => {
       this._setSession(authResult, profile);
     });
   }
