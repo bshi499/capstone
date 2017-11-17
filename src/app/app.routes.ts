@@ -6,6 +6,7 @@ import { AnalysisComponent } from "./analysis/analysis.component";
 import { CallbackComponent } from "./callback/callback.component";
 import { Document } from "./documents/document";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from './auth-guard.service';
@@ -14,8 +15,9 @@ const APP_ROUTES = [
 
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'upload', component: UploadFileComponent, canActivate: [AuthGuard] }
   { path: 'analysis', component: AnalysisComponent, canActivate: [AuthGuard] },
-  { path: 'documents', component: DocumentListComponent },
+  { path: 'documents', component: DocumentListComponent, canActivate: [AuthGuard]  },
   // { path: 'documents/:item', component: DocumentListComponent },
   { path: 'callback', component: CallbackComponent },
   { path: '404', component: NotFoundComponent },
