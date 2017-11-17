@@ -12,7 +12,6 @@ import { auth0 } from 'auth0.js';
 @Injectable()
 export class AuthService {
   // Create Auth0 web auth instance
-  // @TODO: Update AUTH_CONFIG and remove .example extension in src/app/auth/auth0-variables.ts.example
   var webauth = new auth0.WebAuth({
     domain: AUTH_CONFIG.CLIENT_DOMAIN,
     clientID: AUTH_CONFIG.CLIENT_ID
