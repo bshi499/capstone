@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthHttp } from 'angular2-jwt';
 @Component({
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',

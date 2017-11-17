@@ -1,6 +1,13 @@
+'use strict';
+
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
+const jwt = require('express-jwt');
+const jwks = require('jwks-rsa');
+const cors = require('cors');
+
 var ObjectID = mongodb.ObjectID;
 
 var DOCUMENTS_COLLECTION = "documents";
@@ -8,9 +15,25 @@ var DOCUMENTS_COLLECTION = "documents";
 var app = express();
 app.use(bodyParser.json());
 
+
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
+app.use(cors());
+
+const authCheck = jwt({
+  secret = jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: "https://msctech.auth0.com/.well-known/jwks.json"
+  }),
+  audience: 'concat-test-api',
+  issuer: "https://msctech.auth0.com/",
+  algorithms: ['RS256']
+});
+
+
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
