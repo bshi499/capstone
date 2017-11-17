@@ -6,6 +6,29 @@ body{
   background: #eee;
   padding: 20px;
 }
+span.apptitle1 {
+  color:#0000cc;
+  font-weight:bolder;
+  font-family: arial;
+  font-size:30;
+  font-style: normal;
+}
+
+span.apptitle2 {
+  color:#004d00;
+  font-weight:bolder;
+  font-family: arial;
+  font-size:30;
+  font-style: normal;
+}
+
+span.apptitle3 {
+  color:#000066;
+  font-weight:bolder;
+  font-family: arial;
+  font-size:30;
+  font-style: normal;
+}
 
 desc{
   font-family: verdana;
