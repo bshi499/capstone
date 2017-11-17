@@ -22,12 +22,13 @@ app.use(express.static(distDir));
 app.use(cors());
 
 const authCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: "https://msctech.auth0.com/.well-known/jwks.json"
-  }),
+  // secret: jwks.expressJwtSecret({
+  //   cache: true,
+  //   rateLimit: true,
+  //   jwksRequestsPerMinute: 5,
+  //   jwksUri: "https://msctech.auth0.com/.well-known/jwks.json"
+  // }),
+  secret: 'vqkpcrs_4DzbzDt1A6mSOfUYVfOWxdefP3xCguTwipv5DJCUzPdewmANo1Cbde7M',
   audience: 'concat-test-api',
   issuer: "https://msctech.auth0.com/",
   algorithms: ['RS256']
