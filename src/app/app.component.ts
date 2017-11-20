@@ -11,14 +11,16 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'ConCat: Conceptualizer and Categorizer';
-  name = 'file';
-    file = {
-      name: "name from AppComponent",
-      body: "body from AppComponent"
-    };
+
+  var isIn = false;
   constructor(private authService: AuthService) {}
   yell(e) {
     alert("I am yelling.");
     console.log(e);
   }
+
+  toggleState() {
+    let bool = this.isIn;
+    this.isIn = bool === false ? true : false;
+  };
 }

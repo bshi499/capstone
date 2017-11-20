@@ -10,11 +10,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-var isIn = false;
-toggleStat() {
-  let bool = this.isIn;
-  this.isIn = bool === false ? true : false;
-};
-
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
