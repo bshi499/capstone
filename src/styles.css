@@ -144,6 +144,11 @@ nav a:hover{
   margin-top: 30;
 }
 
+#mainNav{
+  width: 100%;
+  margin-top: 30;
+}
+
 #home{
   background: #fdfdfd;
   padding: 20px;
