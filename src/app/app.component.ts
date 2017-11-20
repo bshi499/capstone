@@ -22,5 +22,5 @@ export class AppComponent {
   toggleState() {
     let bool = this.isIn;
     this.isIn = bool === false ? true : false;
-  };
+  }
 }
