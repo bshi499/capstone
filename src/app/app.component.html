@@ -13,8 +13,8 @@
     </div>
     <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
       <ul class="nav navbar-nav">
-        <li><a>Sub 1</a></li>
-        <li><a>Sub 2</a></li>
+        <li><a><span class="glyphicon glyphicon-link"></span>Sub 1</a></li>
+        <li><a><span class="glyphicon glyphicon-briefcase"></span>Sub 2<span class="glyphicon glyphicon-wrecnch"></span></a></li>
         <li><a>Sub 3</a></li>
       </ul>
     </div>
@@ -48,7 +48,7 @@
     <router-outlet></router-outlet>
   </section>
 </div>
-<div>
+<div class="alert alert-info text-center" role="alert">
   <section id="links">
   <h2>Links:</h2>
     <ul>

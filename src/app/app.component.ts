@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'ConCat: Conceptualizer and Categorizer';
 
-  var isIn = false;
+  isIn = false;
   constructor(private authService: AuthService) {}
   yell(e) {
     alert("I am yelling.");
