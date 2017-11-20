@@ -134,14 +134,17 @@ nav a{
 nav a:hover{
   background: #1298e1;
 }
-
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
 /* MAIN */
 
 #mainTitle{
   padding: 20px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 30;
+  margin-top: 60;
 }
 
 #mainNav{

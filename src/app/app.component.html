@@ -51,7 +51,7 @@
         <li><a *ngIf="authService.authenticated" routerLink='/documents/' routerLinkActive="active">Documents</a></li>
         <!-- <li><a routerLink='/documents/:item' routerLinkActive="active">Select Item (NOT USED)</a></li> -->
         <li><a *ngIf="authService.authenticated" routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
-        <li>
+        <li style="float:right">
           <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
           <a (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
         </li>
