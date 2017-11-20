@@ -106,7 +106,6 @@ nav{
   width: 100%;
   /*max-width: 740px;*/
   margin: 0 auto;
-  padding-bottom: 80px;
 }
 
 /*nav ul{
@@ -138,7 +137,11 @@ nav a:hover{
 
 /* MAIN */
 
-
+#mainTitle{
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
 
 #home{
   background: #fdfdfd;
@@ -148,21 +151,21 @@ nav a:hover{
   width: 100%;
   max-width: 960px;
   box-sizing: border-box;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 #links{
   padding: 20px;
   width: 100%;
   max-width: 960px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 #filter{
   padding: 12px;
   background: #e7e7e7;
   border-radius: 2px;
-  line-height: 30px
+  line-height: 30px;
 }
 
 #filter input{
