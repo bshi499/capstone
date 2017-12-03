@@ -52,7 +52,7 @@ export class UploadFileComponent implements OnInit {
       var myReader:FileReader = new FileReader();
       var docEntry:Document = new Document();
       docEntry.name = file.name;
-      docEntry.wordvec = file.type;
+      // docEntry.wordvec = file.type;
       myReader.onloadend = (e) => {
 
         // you can perform an action with read data here
@@ -71,7 +71,7 @@ export class UploadFileComponent implements OnInit {
               res.json()
             )).subscribe(data => {
 
-            //console.log("<Vector>: " + data);
+            console.log("<Vector>: " + data);
 
             docEntry.wordvec = data;
 
