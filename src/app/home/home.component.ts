@@ -97,5 +97,5 @@ export class HomeComponent implements OnInit {
   //
   //   // By default, a newly-created document will have the selected state.
   //   this.selectDocument(document);
-  }
+  // }
 }
