@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
   //
   //
   //
-  // ngOnInit() {
-  // }
+  ngOnInit() {
+  }
   //
   // changeListener($event) : void {
   //   this.readThis($event.target);
