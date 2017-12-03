@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DocumentService } from './documents/document.service';
 import { Document } from './documents/document';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,16 @@ import { Document } from './documents/document';
 })
 export class AppComponent {
   title = 'ConCat: Conceptualizer and Categorizer';
-  name = 'file';
-    file = {
-      name: "name from AppComponent",
-      body: "body from AppComponent"
-    };
+
+  isIn = false;
+  constructor(private authService: AuthService) {}
   yell(e) {
     alert("I am yelling.");
     console.log(e);
+  }
+
+  toggleState() {
+    let bool = this.isIn;
+    this.isIn = bool === false ? true : false;
   }
 }

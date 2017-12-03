@@ -1,6 +1,12 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongodb = require("mongodb");
+'use strict';
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('mongodb');
+const jwt = require('express-jwt');
+const jwks = require('jwks-rsa');
+const cors = require('cors');
+
 var ObjectID = mongodb.ObjectID;
 
 var DOCUMENTS_COLLECTION = "documents";
@@ -11,9 +17,26 @@ var circJSON = require("circular-json");
 var app = express();
 app.use(bodyParser.json());
 
+
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
+app.use(cors());
+
+const authCheck = jwt({
+  // secret: jwks.expressJwtSecret({
+  //   cache: true,
+  //   rateLimit: true,
+  //   jwksRequestsPerMinute: 5,
+  //   jwksUri: "https://msctech.auth0.com/.well-known/jwks.json"
+  // }),
+  secret: 'vqkpcrs_4DzbzDt1A6mSOfUYVfOWxdefP3xCguTwipv5DJCUzPdewmANo1Cbde7M',
+  audience: 'concat-test-api',
+  issuer: "https://msctech.auth0.com/",
+  algorithms: ['RS256']
+});
+
+
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -117,7 +140,16 @@ app.delete("/api/documents/:id", function(req, res) {
 });
 
 
-
+// Delete many
+app.delete("/api/documents/", function(req, res) {
+  db.collection(DOCUMENTS_COLLECTION).deleteMany({ }, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete documents");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
 
 /*
     /api/uploads/
@@ -235,7 +267,6 @@ app.post("/api/updateAll/", function(req, res) {
     console.log("child process exited with code " + code + " and signal " + signal);
   });
 });
-
 
 // app.get('*', function(req, res){
 //   res.send('what???', 404);

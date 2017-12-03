@@ -1,24 +1,69 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="center">
-  <h1 class="main-title">
-    <em class="navy">Con</em><em class="purple">Cat</em>
-    <br />
-    <em class="blue">{{title}}</em>
-  </h1>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Top 1</a>
+      <a class="navbar-brand">Top 2</a>
+      <a class="navbar-brand">Top 3</a>
+    </div>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
+      <ul class="nav navbar-nav">
+        <li><a><span class="glyphicon glyphicon-link"></span>Sub 1</a></li>
+        <li><a><span class="glyphicon glyphicon-briefcase"></span>Sub 2<span class="glyphicon glyphicon-wrecnch"></span></a></li>
+        <li><a>Sub 3</a></li>
+      </ul>
+    </div>
+
+    <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
+      <span class="sr-only">Toggle Navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+</nav>
+<div>
+
   <!--img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="-->
+  <!--<app-home [file]="file" (onYell)="yell($event)">Your files are listed above.</app-home>-->
 </div>
 <div>
-  <!--<app-home [file]="file" (onYell)="yell($event)">Your files are listed above.</app-home>-->
-  <nav>
-    <ul>
-      <li><a routerLink='/' routerLinkActive="active">Home</a></li>
-      <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
-      <li><a routerLink='/documents/' routerLinkActive="active">Documents</a></li>
-      <!-- <li><a routerLink='/documents/:item' routerLinkActive="active">Select Item (NOT USED)</a></li> -->
-      <li><a routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
-    </ul>
-  </nav>
+  <section id="mainTitle">
+    <h1 class="center-bold">
+      <span class="apptitle1">Con</span><span class="apptitle2">Cat</span>
+      <br />
+      <span class="apptitle3">{{title}}</span>
+    </h1>
+
+    <router-outlet></router-outlet>
+  </section>
+  <section id="mainNav">
+    <nav>
+      <ul>
+        <li><a routerLink='/' routerLinkActive="active">Home</a></li>
+        <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
+        <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
+        <li><a *ngIf="authService.authenticated" routerLink='/documents/' routerLinkActive="active">Documents</a></li>
+        <!-- <li><a routerLink='/documents/:item' routerLinkActive="active">Select Item (NOT USED)</a></li> -->
+        <li><a *ngIf="authService.authenticated" routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
+        <li style="float:right">
+          <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
+          <a (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
   <section id="home">
+    <h1 class="center-bold">
+      <span class="apptitle1">Con</span><span class="apptitle2">Cat</span>
+      <br />
+      <span class="apptitle3">{{title}}</span>
+    </h1>
     <router-outlet></router-outlet>
   </section>
 </div>

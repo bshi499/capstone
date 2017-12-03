@@ -35,6 +35,14 @@ export class DocumentService {
                  .catch(this.handleError);
     }
 
+    // delete("/api/documents/")
+    deleteAllDocuments(): Promise<String> {
+      return this.http.delete(this.documentsUrl)
+                 .toPromise()
+                 .then(response => response.json() as String)
+                 .catch(this.handleError);
+    }
+
     // put("/api/documents/:id")
     updateDocument(putDocument: Document): Promise<Document> {
       var putUrl = this.documentsUrl + '/' + putDocument._id;
