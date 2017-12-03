@@ -139,7 +139,6 @@ app.delete("/api/documents/:id", function(req, res) {
   });
 });
 
-
 // Delete many
 app.delete("/api/documents/", function(req, res) {
   db.collection(DOCUMENTS_COLLECTION).deleteMany({ }, function(err, result) {
@@ -153,7 +152,7 @@ app.delete("/api/documents/", function(req, res) {
 
 /*
     /api/uploads/
-    
+
     - receives the file string from the upload component
       to be converted into vector
 */
@@ -168,13 +167,13 @@ app.post("/api/uploads/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-  
+
   // to convert input into array for testing
   // remove later when needed
   var arr = [];
   var temp = '';
   var num = 0;
-    
+
   for(var i = 0; i <= fileText.length; i++)
   {
       if(fileText[i] != ' ' && i != fileText.length)
@@ -221,13 +220,13 @@ app.post("/api/updateAll/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-  
+
   // to convert input into array for testing
   // remove later when needed
   var arr = [];
   var temp = '';
   var num = 0;
-    
+
   for(var i = 0; i <= fileText.length; i++)
   {
       if(fileText[i] != ' ' && i != fileText.length)

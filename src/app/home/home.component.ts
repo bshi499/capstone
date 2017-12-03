@@ -21,13 +21,8 @@ export class HomeComponent implements OnInit {
   @Input() file;
   @Output() onYell = new EventEmitter();
 
-  file2 = {
-    name: "filename",
-    body: "This is the body of the file."
-  };
-
   constructor(private documentService: DocumentService) {
-    this.fileString;
+    // this.fileString;
   }
 
   alertMe() {
@@ -38,69 +33,69 @@ export class HomeComponent implements OnInit {
     this.onYell.emit(e);
   }
 
-  uploadAlert() {
-    alert('Document upload complete!');
-  }
-
-  public fileString;
-
-
-
-  ngOnInit() {
-  }
-
-  changeListener($event) : void {
-    this.readThis($event.target);
-  }
-
-  readThis(inputValue: any) : void {
-    var output = [];
-    for (var i = 0, f; f = inputValue.files[i]; i++) {
-      output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
-    }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();
-    var docEntry:Document = new Document();
-    docEntry.name = file.name;
-    docEntry.wordvec = file.type;
-    myReader.onloadend = (e) => {
-      // you can perform an action with read data here
-      console.log(myReader.result);
-      this.fileString = myReader.result;
-      // console.log(this.fileString);
-      // Both below methods work.
-      //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
-      document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = myReader.result;
-
-      this.documentService.createDocument(docEntry);
-      this.uploadAlert();
-    };
-
-    myReader.readAsText(file);
-  }
-
-  selectDocument(document: Document) {
-    this.selectedDocument = document
-  }
-
-  createNewDocument() {
-    var document: Document = {
-      name: '',
-      body: '',
-      wordvec: '',
-      categories: {
-        cluster: '',
-        group: ''
-      }
-    };
-
-    // By default, a newly-created document will have the selected state.
-    this.selectDocument(document);
+  // uploadAlert() {
+  //   alert('Document upload complete!');
+  // }
+  //
+  // public fileString;
+  //
+  //
+  //
+  // ngOnInit() {
+  // }
+  //
+  // changeListener($event) : void {
+  //   this.readThis($event.target);
+  // }
+  //
+  // readThis(inputValue: any) : void {
+  //   var output = [];
+  //   for (var i = 0, f; f = inputValue.files[i]; i++) {
+  //     output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+  //                 f.size, ' bytes, last modified: ',
+  //                 f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+  //                 '</li>');
+  //   }
+  //   document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  //
+  //   var file:File = inputValue.files[0];
+  //   var myReader:FileReader = new FileReader();
+  //   var docEntry:Document = new Document();
+  //   docEntry.name = file.name;
+  //   docEntry.wordvec = file.type;
+  //   myReader.onloadend = (e) => {
+  //     // you can perform an action with read data here
+  //     console.log(myReader.result);
+  //     this.fileString = myReader.result;
+  //     // console.log(this.fileString);
+  //     // Both below methods work.
+  //     //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;
+  //     document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
+  //     docEntry.body = myReader.result;
+  //
+  //     this.documentService.createDocument(docEntry);
+  //     this.uploadAlert();
+  //   };
+  //
+  //   myReader.readAsText(file);
+  // }
+  //
+  // selectDocument(document: Document) {
+  //   this.selectedDocument = document
+  // }
+  //
+  // createNewDocument() {
+  //   var document: Document = {
+  //     name: '',
+  //     body: '',
+  //     wordvec: '',
+  //     categories: {
+  //       cluster: '',
+  //       group: ''
+  //     }
+  //   };
+  //
+  //   // By default, a newly-created document will have the selected state.
+  //   this.selectDocument(document);
   }
 }
