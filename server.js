@@ -136,6 +136,17 @@ app.delete("/api/documents/:id", function(req, res) {
   });
 });
 
+// Delete many
+app.delete("/api/documents/", function(req, res) {
+  db.collection(DOCUMENTS_COLLECTION).deleteMany({ }, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete documents");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
+
 // app.get('*', function(req, res){
 //   res.send('what???', 404);
 // });
