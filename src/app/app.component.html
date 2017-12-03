@@ -7,8 +7,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <section id="mainNav">
-        <nav>
+      <!-- <section id="mainNav"> -->
+        <!-- <nav> -->
           <ul>
             <li><a class="navbar-brand" routerLink='/' routerLinkActive="active">Home</a></li>
             <li><a class="navbar-brand" routerLink='/about' routerLinkActive="active">About Us</a></li>
@@ -21,8 +21,8 @@
               <a class="navbar-brand" (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
             </li>
           </ul>
-        </nav>
-      </section>
+        <!-- </nav> -->
+      <!-- </section> -->
       <a class="navbar-brand">Top 1</a>
       <a class="navbar-brand">Top 2</a>
       <a class="navbar-brand">Top 3</a>
@@ -50,12 +50,12 @@
 </div>
 <div>
   <section id="mainTitle">
-    <img class="img-responsive" width="300" height="300" src="assets/concat-banner.png" alt="banner image">
-    <h1 class="center-bold">
+    <img class="img-responsive" width="300" height="300" align="middle" src="assets/concat-banner.png" alt="banner image">
+    <!-- <h1 class="center-bold">
       <span class="apptitle1">Con</span><span class="apptitle2">Cat</span>
       <br />
       <span class="apptitle3">{{title}}</span>
-    </h1>
+    </h1> -->
     <!-- <router-outlet></router-outlet> -->
   </section>
   <section id="home">
