@@ -14,6 +14,7 @@ import { AuthGuard } from './auth-guard.service';
 const APP_ROUTES = [
 
   { path: 'home', component: HomeComponent },
+  { path: 'brand',  redirectTo: '/home', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'upload', component: UploadFileComponent, canActivate: [AuthGuard] },
   { path: 'analysis', component: AnalysisComponent, canActivate: [AuthGuard] },

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <li><a class="navbar-brand" routerLink='/' routerLinkActive="active">ConCat</a></li>
-    </div>
+      <li><a class="navbar-brand" routerLink='/brand' routerLinkActive="active">ConCat</a></li>
+      <li style="float:right">
+        <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
+        <a (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
+      </li>
       <!-- <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
         <span class="sr-only">Toggle Navigation</span>
         <span class="icon-bar"></span>
@@ -18,10 +21,8 @@
         <li><a *ngIf="authService.authenticated" routerLink='/documents/' routerLinkActive="active">Documents</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
       </ul>
-      <li style="float:right">
-        <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
-        <a (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
-      </li>
+
+      </div>
         <!-- </nav> -->
       <!-- </section> -->
       <!-- <a class="navbar-brand">Top 1</a>
