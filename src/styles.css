@@ -139,6 +139,7 @@ nav a:active {
 #mainTitle{
   padding: 20px;
   width: 100%;
+  max-width: 300px;
   /*margin-top: 60;*/
   margin: 0 auto;
 }
