@@ -7,7 +7,6 @@
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/documents/' routerLinkActive="active"><span class="glyphicon glyphicon-briefcase"></span>Documents</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
-
       <li><a class="navbar-brand" routerLink='/brand' routerLinkActive="active">ConCat</a></li>
       <li style="float:right">
         <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
@@ -46,7 +45,7 @@
     </button> -->
   </div>
 </nav>
-<div id="center">
+<div class="center">
   <section id="mainTitle">
     <img class="img-responsive" width="300" height="300" src="assets/concat-banner.png" alt="banner image">
   </section>

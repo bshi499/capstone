@@ -136,7 +136,7 @@ nav a:hover{
   color: red;
   /*background: #1298e1;*/
 }
-.active {
+nav a:active {
   background-color: #4CAF50;
   color: white;
 }
