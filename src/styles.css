@@ -110,7 +110,7 @@ nav{
 
 nav ul{
   padding: 0 !important;
-  background: #0288d1;
+  /*background: #0288d1;*/
   display: flex;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
   border-radius: 2px;
@@ -132,7 +132,9 @@ nav a{
 }
 
 nav a:hover{
-  background: #1298e1;
+  background-color: #0288d1;
+  color: red;
+  /*background: #1298e1;*/
 }
 .active {
   background-color: #4CAF50;
