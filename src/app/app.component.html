@@ -1,18 +1,20 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <a class="navbar-brand" routerLink='/brand' routerLinkActive="active">ConCat</a>
       <ul class="nav navbar-nav">
-        <li><a class="navbar-brand" routerLink='/brand' routerLinkActive="active">ConCat</a></li>
         <li><a routerLink='/' routerLinkActive="active">Home</a></li>
         <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/documents/' routerLinkActive="active"><span class="glyphicon glyphicon-briefcase"></span>Documents</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis/' routerLinkActive="active">Analysis</a></li>
       </ul>
-      <li style="float:right">
-        <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
-        <a (click)=authService.logout() *ngIf="authService.authenticated">Log Out</a>
-      </li>
+      <ul class="nav navbar-nav navbar-right">
+        <li style="float:right">
+          <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
+          <a *ngIf="authService.authenticated" (click)=authService.logout()>Log Out</a>
+        </li>
+      </ul>
       <!-- <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
         <span class="sr-only">Toggle Navigation</span>
         <span class="icon-bar"></span>
