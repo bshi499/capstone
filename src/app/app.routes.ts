@@ -13,7 +13,7 @@ import { AuthGuard } from './auth-guard.service';
 
 const APP_ROUTES = [
 
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'upload', component: UploadFileComponent, canActivate: [AuthGuard] },
   { path: 'analysis', component: AnalysisComponent, canActivate: [AuthGuard] },
@@ -21,6 +21,7 @@ const APP_ROUTES = [
   // { path: 'documents/:item', component: DocumentListComponent },
   { path: 'callback', component: CallbackComponent },
   { path: '404', component: NotFoundComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 
