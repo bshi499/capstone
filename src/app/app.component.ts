@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
   providers: [DocumentService]
 })
 export class AppComponent {
-  title = 'ConCat: Conceptualizer and Categorizer';
+  title = 'Conceptualizer and Categorizer';
 
   isIn = false;
   constructor(private authService: AuthService) {}
