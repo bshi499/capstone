@@ -143,10 +143,10 @@ nav a:hover{
 /* MAIN */
 
 #mainTitle{
-  padding: 20px;
+  /*padding: 20px;*/
   width: 100%;
-  margin-top: 60;
-  /*margin: 0 auto;*/
+  /*margin-top: 60;*/
+  margin: 0 auto;
 }
 
 /*#mainNav{
