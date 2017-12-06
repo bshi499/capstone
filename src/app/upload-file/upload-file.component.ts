@@ -35,10 +35,12 @@ export class UploadFileComponent implements OnInit {
   }
 
   changeListener($event) : void {
-    // this.readMultiple($event.target);
-    this.readThis($event.target);
+    this.readMultiple($event.target);
+    //this.readThis($event.target);
   }
 
+  // single file
+  /*
   readThis(inputValue: any) : void {
     var output = [];
     for (var i = 0, f; f = inputValue.files[i]; i++) {
@@ -53,7 +55,6 @@ export class UploadFileComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
-    docEntry.wordvec = file.type;
     myReader.onloadend = (e) => {
       
       // you can perform an action with read data here
@@ -71,8 +72,6 @@ export class UploadFileComponent implements OnInit {
       this.http.post(this.uploadUrl, sendInput).map((res:Response) => (
             res.json()
           )).subscribe(data => {
-
-          //console.log("<Vector>: " + data);
           
           docEntry.wordvec = data;
 
@@ -82,49 +81,56 @@ export class UploadFileComponent implements OnInit {
       // console.log(this.fileString);
       // Both below methods work.
       //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;      
-      
-
       // original
-      /* 
-      document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = myReader.result;
-
-      this.documentService.createDocument(docEntry);
-      this.uploadAlert();
-      */
-
+      // document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
+      // docEntry.body = myReader.result;
+      // this.documentService.createDocument(docEntry);
+      // this.uploadAlert();
     };
 
     myReader.readAsText(file);
     this.uploadAlert();
   }
-
-/*  
-
+  */
+  
   readMultiple(inputFiles: any) {
     var files = inputFiles.files;
-
+    
     Object.keys(files).forEach(i => {
 
       var file = files[i];
       var reader = new FileReader();
       var docEntry:Document = new Document();
       docEntry.name = file.name;
+
       reader.onload = (e) => {
-
+      
+        console.log(reader.result);
         this.fileString = reader.result;
-        // console.log(this.fileString);
 
+        if(files.length == 1)
+          document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
         docEntry.body = reader.result;
-        
-        this.documentService.createDocument(docEntry);
-      }
+
+        var sendInput = {text: this.fileString};
+
+        this.http.post(this.uploadUrl, sendInput).map((res:Response) => (
+              res.json()
+          )).subscribe(data => {
+
+          console.log("<Vector>: " + data);
+          
+          docEntry.wordvec = data;
+
+          this.documentService.createDocument(docEntry);
+        });
+      };
 
       reader.readAsBinaryString(file);
     });
-  }
 
-*/
+    this.uploadAlert();
+  }
 
   selectDocument(document: Document) {
     this.selectedDocument = document
