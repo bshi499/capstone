@@ -39,7 +39,6 @@ export class UploadFileComponent implements OnInit {
     //this.readThis($event.target);
   }
 
-  // single file
   /*
   readThis(inputValue: any) : void {
     var output = [];
