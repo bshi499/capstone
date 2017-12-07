@@ -53,6 +53,7 @@ export class UploadFileComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
+    docEntry.custodian = file.type;
     // docEntry.wordvec = file.type;
     myReader.onloadend = (e) => {
 
@@ -133,6 +134,7 @@ export class UploadFileComponent implements OnInit {
   createNewDocument() {
     var document: Document = {
       name: '',
+      custodian: '',
       body: '',
       wordvec: '',
       categories: {

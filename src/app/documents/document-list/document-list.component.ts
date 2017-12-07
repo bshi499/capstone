@@ -59,6 +59,7 @@ export class DocumentListComponent implements OnInit {
   createNewDocument() {
     var document: Document = {
       name: '',
+      custodian: '',
       body: '',
       wordvec: '',
       categories: {
@@ -88,14 +89,14 @@ export class DocumentListComponent implements OnInit {
         {
           var bodyText = this.documents[i].body;
           var sendTextBody = {text: bodyText, num: i};
-        
+
           this.http.post(this.updateUrl, sendTextBody).map((res:Response) => (
             res.json()
           )).subscribe(data => {
 
             //console.log("Document Index: ", data.idx);
             //console.log("<Vector>: " + data.text);
-           
+
             this.documents[data.idx].wordvec = data.text;
             this.documentService.updateDocument(this.documents[data.idx]);
           });
