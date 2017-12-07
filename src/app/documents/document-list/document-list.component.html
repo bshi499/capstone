@@ -14,8 +14,9 @@
         {{document.name}}
       </li>
     </ul>
-    <button class="btn btn-warning" (click)="createNewDocument()">New</button>
+    <button class="btn btn-success" (click)="createNewDocument()">New</button>
     <button class="btn btn-warning" (click)="updateAllDocuments()">Update All</button>
+    <button class="btn btn-danger" (click)="deleteAllDocuments()">Delete All</button>
   </div>
   <div class="col-md-5 col-md-offset-2">
     <document-details

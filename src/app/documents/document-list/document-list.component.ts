@@ -29,6 +29,10 @@ export class DocumentListComponent implements OnInit {
     alert(i + ' documents were updated.');
   }
 
+  deleteAlert(i) {
+    alert(i + ' of ' + this.documents.length + ' documents were deleted.');
+  }
+
   ngOnInit() {
 
      this.documentService
@@ -131,6 +135,26 @@ export class DocumentListComponent implements OnInit {
     if (idx !== -1) {
       this.documents[idx] = document;
       this.selectDocument(document);
+    }
+    return this.documents;
+  }
+
+  deleteAllDocuments = () => {
+
+    if(this.documents.length == 0) {
+      console.log("No documents exist.");
+    } else {
+      var numDeleted = this.documents.length;
+      // var numEntries = this.documents.length;
+      // for(var i = 0; i < numEntries; ++i) {
+        // if(this.documents[i].custodian == '') {
+        // this.documents.splice(0, 1);
+        // ++numDeleted;
+      // }
+      this.documents.splice(0, numDeleted);
+      this.documentService.deleteAllDocuments();
+      this.deleteAlert(numDeleted);
+      this.selectDocument(null);
     }
     return this.documents;
   }

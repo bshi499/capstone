@@ -131,6 +131,20 @@ nav a:hover{
   /*background: #1298e1;*/
 }
 
+.navbar-collapse li a:hover{
+  background-color: #0288d1;
+  color: white;
+  text-decoration: underline;
+  /*background: #1298e1;*/
+}
+
+.navbar-collapse li a:active{
+  background-color: #white;
+  color: purple;
+  text-decoration: underline;
+  /*background: #1298e1;*/
+}
+
 /* Not needed. */
 nav a:active {
   background-color: #4CAF50;
