@@ -11,7 +11,7 @@
     </div>
     <div id="main_navbar_collapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a routerLink='/' routerLinkActive="active">Home</a></li>
+        <li><a routerLink='/home' routerLinkActive="active">Home</a></li>
         <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents<span class="glyphicon glyphicon-briefcase"></span></a></li>
@@ -41,7 +41,7 @@
     <router-outlet></router-outlet>
   </section>
 </div>
-<div>
+<div class="nobullets">
   <section id="links">
   <h2>Links:</h2>
     <ul>
