@@ -5,8 +5,16 @@
   <br />
   <br />
   <!-- <form> -->
-  <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" multiple />
-  <!-- </form> -->
-  <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html" readonly>{{fileContent}}</textarea>
-  <output id="list"></output>
+  <form #userForm="ng-form">
+    <div class="form-group">
+      <label>Custodian</label>
+      <input type="text" class="form-control" name="custodian" [(ngModel)]="custodian">
+      <input id="upload" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener($event)" />
+      <textarea class="form-control" rows=15 cols=120 id="ms_word_filtered_html" readonly>{{fileContent}}</textarea>
+      <output id="list"></output>
+  </div>
+</form>
+  <!-- <form> -->
+  <input id="upload_mult" type="file" accept=".txt" ng-file-model="files" name="files[]" size=30 (change)="changeListener_mult($event)" multiple />
+  <output id="list_mult"></output>
 </div>

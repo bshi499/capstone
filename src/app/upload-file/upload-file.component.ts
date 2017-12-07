@@ -18,6 +18,7 @@ export class UploadFileComponent implements OnInit {
 
   @Input() doc: Document;
   selectedDocument: Document;
+  custodian: string = '';
 
   private uploadUrl = '/api/uploads';
 
@@ -39,6 +40,10 @@ export class UploadFileComponent implements OnInit {
     this.readThis($event.target);
   }
 
+  changeListener_mult($event) : void {
+    this.readThis($event.target);
+  }
+
   readThis(inputValue: any) : void {
     var output = [];
     for (var i = 0, f; f = inputValue.files[i]; i++) {
@@ -53,12 +58,14 @@ export class UploadFileComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
-    docEntry.custodian = file.type;
-    // docEntry.wordvec = file.type;
+    if (this.custodian === '') {
+      docEntry.custodian = file.type;
+    }
+    else {
+      docEntry.custodian = this.custodian;
+    }
     myReader.onloadend = (e) => {
-
       // you can perform an action with read data here
-      // console.log(myReader.result);
       this.fileString = myReader.result;
 
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
