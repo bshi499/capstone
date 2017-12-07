@@ -131,8 +131,9 @@ nav a:hover{
   /*background: #1298e1;*/
 }
 nav a:active {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #eee;
+  /*background-color: #4CAF50;*/
+  color: purple;
 }
 /* MAIN */
 
