@@ -116,7 +116,7 @@ nav li{
 
 nav a{
   text-align: center;
-  padding: 16px 0;
+  /*padding: 16px 0;*/
   color: #eee;
   display: block;
   text-decoration: none;
@@ -213,7 +213,7 @@ nav a{
   margin: 0 auto;
 }
 
-#filter{
+/*#filter{
   padding: 12px;
   background: #e7e7e7;
   border-radius: 2px;
@@ -286,4 +286,4 @@ nav a{
   letter-spacing: 1px;
   cursor: pointer;
   float: right;
-}
+}*/
