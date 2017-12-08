@@ -164,13 +164,13 @@ nav a:active {
     position: relative;
     margin-right: 10px;
     top: 0px;
-    color: #purple;
+    color: #black;
 }
 
 ul.navbar-nav {
   overflow:auto;
 }
-ul.navbar-nav li.right {
+li.right {
   float:right;
 }
 
