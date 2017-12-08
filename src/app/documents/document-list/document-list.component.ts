@@ -26,7 +26,7 @@ export class DocumentListComponent implements OnInit {
   }
 
   deleteAlert(i) {
-    alert(i + ' of ' + this.documents.length + ' documents were deleted.');
+    alert(i + ' documents were deleted.');
   }
 
   ngOnInit() {
