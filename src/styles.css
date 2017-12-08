@@ -132,14 +132,14 @@ nav a:hover{
 }
 
 .navbar-collapse li a:hover{
-  background-color: #pink;
+  background-color: #FFC0CB;
   color: white;
   text-decoration: underline;
   /*background: #1298e1;*/
 }
 
 .navbar-collapse li a.active{
-  background-color: #white;
+  background-color: white;
   color: purple;
   text-decoration: underline;
   /*background: #1298e1;*/
