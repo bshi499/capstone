@@ -170,7 +170,7 @@ nav a:hover{
     position: relative;
     margin-right: 10px;
     top: 0px;
-    color: #black;
+    color: black;
 }
 
 /*ul.navbar-nav {
@@ -182,8 +182,8 @@ nav a:hover{
 
 /* MAIN */
 .mainTitleMargin{
-  margin-top: 1000;
-  /*text-align: center;*/
+  padding-top: 1000px;
+  text-align: center;
 }
 
 /* ID based backup for main title. */
@@ -194,9 +194,10 @@ nav a:hover{
 
 #mainTitle{
   /*padding: 20px;*/
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  /*width: 100%;*/
+  /*max-width: 300px;*/
+  /*margin: 0 auto;*/
+
 }
 
 /*#mainNav{
