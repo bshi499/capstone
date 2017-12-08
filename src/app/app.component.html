@@ -16,7 +16,7 @@
         <li><a routerLink='/home' routerLinkActive="active">Home</a></li>
         <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
-        <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents<span class="glyphicon glyphicon-briefcase"></span></a></li>
+        <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents&nbsp;<span class="glyphicon glyphicon-briefcase"></span></a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis' routerLinkActive="active">Analysis</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

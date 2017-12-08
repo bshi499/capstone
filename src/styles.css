@@ -97,6 +97,7 @@ h1.center-bold {
 
 nav{
   width: 100%;
+  /*max-width: 740px;*/
   margin: 0 auto;
 }
 
@@ -104,8 +105,8 @@ nav ul{
   padding: 0 !important;
   background: #0288d1;
   display: flex;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-  border-radius: 2px;
+  /*box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);*/
+  /*border-radius: 2px;*/
   margin-top: 0;
 }
 
@@ -124,35 +125,25 @@ nav a{
 }
 
 nav a:hover{
-  background-color: #0288d1;
-  color: #white;
+  background-color: #1298e1;;
+  color: white;
   text-decoration: underline;
   /*background: #1298e1;*/
 }
 
 .navbar-collapse li a:hover{
-  color: #blue;
+  background-color: #pink;
+  color: white;
   text-decoration: underline;
   /*background: #1298e1;*/
 }
 
-#nav-hover li a:hover {
-  background-color: #0288d1;
-  color: #white;
-  text-decoration: underline;
-}
-
-#nav-hover li a:active{
+.navbar-collapse li a.active{
   background-color: #white;
-  color: #purple;
+  color: purple;
+  text-decoration: underline;
   /*background: #1298e1;*/
 }
-
-/*.navbar-collapse li a:active{
-  background-color: #white !important;
-  color: #purple;
-  text-decoration: underline;
-}*/
 
 /* Not needed. */
 /*nav a:active {
