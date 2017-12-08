@@ -103,15 +103,15 @@ nav{
 nav ul{
   padding: 0 !important;
   background: #0288d1;
-  display: flex;
+  /*display: flex;*/
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
   border-radius: 2px;
   margin-top: 0;
 }
 
 nav li{
-  flex-basis: 0;
-  flex-grow: 1;
+  /*flex-basis: 0;*/
+  /*flex-grow: 1;*/
   list-style-type: none;
 }
 
@@ -123,30 +123,33 @@ nav a{
   text-decoration: none;
 }
 
-nav a:hover{
+/*nav a:hover{
   background-color: #0288d1;
   color: #white;
   text-decoration: underline;
-  /*background: #1298e1;*/
-}
+}*/
 
-.navbar-collapse li a:hover{
+/*.navbar-collapse li a:hover{
   color: #blue;
   text-decoration: underline;
-  /*background: #1298e1;*/
-}
+}*/
 
-#nav-hover {
+#nav-hover li a:hover {
   background-color: #0288d1;
   color: #white;
+  text-decoration: underline;
 }
 
-.navbar-collapse li a.active{
+#nav-hover li a:active{
+  background-color: #white;
+  color: #purple;
+}
+
+/*.navbar-collapse li a:active{
   background-color: #white !important;
   color: #purple;
   text-decoration: underline;
-  /*background: #1298e1;*/
-}
+}*/
 
 /* Not needed. */
 /*nav a:active {
