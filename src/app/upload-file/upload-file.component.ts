@@ -18,6 +18,7 @@ export class UploadFileComponent implements OnInit {
 
   @Input() doc: Document;
   selectedDocument: Document;
+  custodian: string = '';
 
   private uploadUrl = '/api/uploads';
 
@@ -39,7 +40,11 @@ export class UploadFileComponent implements OnInit {
     //this.readThis($event.target);
   }
 
-  /*
+
+  changeListener_mult($event) : void {
+    this.readThis($event.target);
+  }
+
   readThis(inputValue: any) : void {
     var output = [];
     for (var i = 0, f; f = inputValue.files[i]; i++) {
@@ -54,44 +59,39 @@ export class UploadFileComponent implements OnInit {
     var myReader:FileReader = new FileReader();
     var docEntry:Document = new Document();
     docEntry.name = file.name;
+    if (this.custodian === '') {
+      docEntry.custodian = file.type;
+    }
+    else {
+      docEntry.custodian = this.custodian;
+    }
     myReader.onloadend = (e) => {
-      
       // you can perform an action with read data here
-      console.log(myReader.result);
       this.fileString = myReader.result;
 
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
 
       var sendInput = {text: this.fileString};
-      
+
       // post file data to server via '/api/uploads'
       // receive post-conversion data and places it into the wordvec field, then creates the document
       // conversion must be handled server side as child process & python cannot be done in the frontend
       this.http.post(this.uploadUrl, sendInput).map((res:Response) => (
             res.json()
           )).subscribe(data => {
-          
           docEntry.wordvec = data;
-
           this.documentService.createDocument(docEntry);
       });
 
       // console.log(this.fileString);
       // Both below methods work.
-      //(<HTMLInputElement>document.getElementById( 'ms_word_filtered_html')).value = this.fileString;      
-      // original
-      // document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      // docEntry.body = myReader.result;
-      // this.documentService.createDocument(docEntry);
-      // this.uploadAlert();
     };
 
     myReader.readAsText(file);
     this.uploadAlert();
   }
-  */
-  
+
   readMultiple(inputFiles: any) {
     var files = inputFiles.files;
     
@@ -138,6 +138,7 @@ export class UploadFileComponent implements OnInit {
   createNewDocument() {
     var document: Document = {
       name: '',
+      custodian: '',
       body: '',
       wordvec: '',
       categories: {

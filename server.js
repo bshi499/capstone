@@ -139,7 +139,6 @@ app.delete("/api/documents/:id", function(req, res) {
   });
 });
 
-
 // Delete many
 app.delete("/api/documents/", function(req, res) {
   db.collection(DOCUMENTS_COLLECTION).deleteMany({ }, function(err, result) {
@@ -161,7 +160,6 @@ app.post("/api/uploads/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-  
   // python communication
 
   var spawn = child_proc.spawn;
@@ -191,7 +189,6 @@ app.post("/api/updateAll/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-  
   // python communication
 
   var spawn = child_proc.spawn;
