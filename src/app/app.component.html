@@ -16,9 +16,9 @@
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents<span class="glyphicon glyphicon-briefcase"></span></a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis' routerLinkActive="active">Analysis</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+      <!-- </ul> -->
+      <!-- <ul class="nav navbar-nav navbar-right"> -->
+        <li class="right">
           <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
           <a *ngIf="authService.authenticated" (click)=authService.logout()>Log Out</a>
         </li>
@@ -48,7 +48,7 @@
       <h4><li><a target="_blank" rel="noopener" href="https://angular.io/tutorial"><span class="glyphicon glyphicon-link"></span>&nbsp;Tour of Heroes</a></li></h4>
       <h4><li><a target="_blank" rel="noopener" href="https://www.edrm.net/frameworks-and-standards/edrm-model/"><span class="glyphicon glyphicon-link"></span>&nbsp;Electronic Discovery Reference Model</a></li></h4>
       <h4><li><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~./enron/"><span class="glyphicon glyphicon-link"></span>More about the Enron email dataset</a></li></h4>
-      <h4><li><a target="_blank" rel="noopener" href="https://github.com/mciminesi/capstone"><span class="glyphicon glyphicon-link"></span>Github for this app</a></li></h4>
+      <h4><li><a target="_blank" rel="noopener" href="https://github.com/mciminesi/capstone">Github for this app</a></li></h4>
     </ul>
   </section>
 </div>

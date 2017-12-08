@@ -45,6 +45,10 @@ export class DocumentListComponent implements OnInit {
               group: ''
             }
           }
+
+          if (!document.custodian) {
+            document.custodian = "Mapped with no custodian.";
+          }
           return document;
         });
       });

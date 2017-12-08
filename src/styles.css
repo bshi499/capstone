@@ -158,13 +158,20 @@ nav a:active {
 }
 
 .nobullets ul li:before {
-    content: "\e080";
+    content: "\e293";
     font-family: 'Glyphicons Halflings';
     font-size: 9px;
     position: relative;
     margin-right: 10px;
     top: 3px;
     color: #ccc;
+}
+
+.navbar-collapse ul {
+  overflow:auto;
+}
+.navbar-collapse ul li.right {
+  float:right;
 }
 
 /* MAIN */
