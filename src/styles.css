@@ -113,7 +113,7 @@ nav li{
   /*flex-basis: 0;*/
   /*flex-grow: 1;*/
   width: 10%;
-  max-width: 50px;
+  max-width: 120px;
   list-style-type: none;
 }
 
