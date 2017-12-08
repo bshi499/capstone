@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  font-family: verdana;
+  font-family: arial;
   letter-spacing: 0.1em;
   color: #606060;
   /*background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');*/
@@ -87,11 +87,9 @@ h1.center-title {
   text-align: center;
 }*/
 
-h1.center-bold {
+.center-bold {
   text-align: center;
   font-weight: bold;
-  padding: 16px 0;
-  display: block;
 }
 
 /* NAVBAR */
