@@ -112,6 +112,8 @@ nav ul{
 nav li{
   /*flex-basis: 0;*/
   /*flex-grow: 1;*/
+  width: 10%;
+  max-width: 50px;
   list-style-type: none;
 }
 
@@ -140,16 +142,16 @@ nav a{
   text-decoration: underline;
 }
 
-#nav-hover li a.active{
+/*#nav-hover li a.active{
   background-color: #white !important;
   color: #purple !important;
-}
+}*/
 
-/*.navbar-collapse li a:active{
+.navbar-collapse li a:active{
   background-color: #white !important;
   color: #purple;
   text-decoration: underline;
-}*/
+}
 
 /* Not needed. */
 /*nav a:active {
