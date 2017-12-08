@@ -8,15 +8,15 @@
         <span class="icon-bar"></span>
       </button>
       <ul>
-      <li><a class="navbar-brand" routerLink='/brand'>ConCat</a></li>
-    </ul>
+        <li><a class="navbar-brand" routerLink='/brand'>ConCat</a></li>
+      </ul>
     </div>
     <div id="main_navbar_collapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav" id="nav-hover">
         <li><a routerLink='/home' routerLinkActive="active">Home</a></li>
         <li><a routerLink='/about' routerLinkActive="active">About Us</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
-        <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents&nbsp;<span class="glyphicon glyphicon-briefcase"></span></a></li>
+        <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents<span class="glyphicon glyphicon-briefcase"></span></a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis' routerLinkActive="active">Analysis</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -28,7 +28,7 @@
     </div>
   </div>
 </nav>
-<div class="center automargin">
+<div class="mainTitleMargin">
   <section id="mainTitle">
     <img class="img-responsive" width="300" height="300" src="assets/concat-banner.png" alt="banner image">
   </section>
