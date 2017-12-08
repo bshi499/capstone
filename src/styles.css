@@ -160,17 +160,17 @@ nav a:active {
 .nobullets ul li:before {
     content: "\e144";
     font-family: 'Glyphicons Halflings';
-    font-size: 9px;
+    font-size: 16px;
     position: relative;
     margin-right: 10px;
-    top: 3px;
-    color: #ccc;
+    top: 0px;
+    color: #purple;
 }
 
-.navbar-collapse ul {
+ul.navbar-nav {
   overflow:auto;
 }
-.navbar-collapse ul li.right {
+ul.navbar-nav li.right {
   float:right;
 }
 
