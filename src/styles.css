@@ -142,6 +142,10 @@ nav a{
   /*background: #1298e1;*/
 }
 
+#main_navbar_collapse{
+  padding: 0;
+}
+
 /* Not needed. */
 /*nav a:active {
   background-color: #4CAF50;
