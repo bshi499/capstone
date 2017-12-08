@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Document } from '../document';
 import { DocumentService } from '../document.service';
 import { DocumentDetailsComponent } from '../document-details/document-details.component';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-
 
 @Component({
   selector: 'document-list',
@@ -17,12 +15,10 @@ export class DocumentListComponent implements OnInit {
 
   documents: Document[];
   selectedDocument: Document;
-  item: string;
 
   private updateUrl = '/api/updateAll';
 
-  constructor(private documentService: DocumentService, private route: ActivatedRoute, private http: Http) {
-    this.item = route.snapshot.params['item'];
+  constructor(private documentService: DocumentService, private http: Http) {
   }
 
   updateAlert(i) {

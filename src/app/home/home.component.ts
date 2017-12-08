@@ -10,7 +10,6 @@ declare function escape(s:string): string;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  homeTitle = "Welcome to the homepage (file upload)!";
   description = 'This app can be used to cluster text documents based on their content using an affinity propagation method.';
   instructions = 'Upload text files that you would like clustered to the database. Clustering can be run from the analysis page, where results will appear.';
   myString = "Testing";
