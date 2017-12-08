@@ -140,9 +140,9 @@ nav a{
   text-decoration: underline;
 }
 
-#nav-hover li a:active{
-  background-color: #white;
-  color: #purple;
+#nav-hover li a.active{
+  background-color: #white !important;
+  color: #purple !important;
 }
 
 /*.navbar-collapse li a:active{
