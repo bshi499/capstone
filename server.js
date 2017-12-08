@@ -152,13 +152,6 @@ app.delete("/api/documents/", function(req, res) {
 
 /*
     /api/uploads/
-
-    - receives the file string from the upload component
-      to be converted into vector
-*/
-
-/*
-    /api/uploads/
     - receives the file string from the upload component
       to be converted into vector
 */
@@ -167,29 +160,6 @@ app.post("/api/uploads/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-
-  // to convert input into array for testing
-  // remove later when needed
-  var arr = [];
-  var temp = '';
-  var num = 0;
-
-  for(var i = 0; i <= fileText.length; i++)
-  {
-      if(fileText[i] != ' ' && i != fileText.length)
-      {
-        temp += fileText[i];
-      }
-      else
-      {
-        arr[num] = temp;
-        num++;
-        temp = '';
-      }
-  }
-  // end block
-
-
   // python communication
 
   var spawn = child_proc.spawn;
@@ -204,9 +174,8 @@ app.post("/api/uploads/", function(req, res) {
     res.send(circJSON.stringify(finalOutput));
   });
 
-  py.stdin.write(JSON.stringify(arr));
+  py.stdin.write(JSON.stringify(fileText));
   py.stdin.end();
-
 
   py.on('exit', function (code, signal) {
     console.log("child process exited with code " + code + " and signal " + signal);
@@ -220,29 +189,6 @@ app.post("/api/updateAll/", function(req, res) {
 
   var fileText = req.body.text;
   var finalOutput = '';
-
-  // to convert input into array for testing
-  // remove later when needed
-  var arr = [];
-  var temp = '';
-  var num = 0;
-
-  for(var i = 0; i <= fileText.length; i++)
-  {
-      if(fileText[i] != ' ' && i != fileText.length)
-      {
-        temp += fileText[i];
-      }
-      else
-      {
-        arr[num] = temp;
-        num++;
-        temp = '';
-      }
-  }
-  // end block
-
-
   // python communication
 
   var spawn = child_proc.spawn;
@@ -258,9 +204,8 @@ app.post("/api/updateAll/", function(req, res) {
     res.send(circJSON.stringify(returnBody));
   });
 
-  py.stdin.write(JSON.stringify(arr));
+  py.stdin.write(JSON.stringify(fileText));
   py.stdin.end();
-
 
   py.on('exit', function (code, signal) {
     console.log("child process exited with code " + code + " and signal " + signal);
