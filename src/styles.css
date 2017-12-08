@@ -5,7 +5,7 @@ body{
   color: #606060;
   /*background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');*/
   background: #eee;
-  padding: 20px;
+  /*padding: 20px;*/
 }
 span.apptitle1 {
   color:#0000cc;
@@ -182,8 +182,9 @@ nav a:hover{
   padding: 20px;
   width: 100%;
   max-width: 300px;
-  /*margin-top: 60;*/
-  margin: 0 auto;
+  text-align: center;
+  margin-top: 60;
+  /*margin: 0 auto;*/
 }
 
 /*#mainNav{
