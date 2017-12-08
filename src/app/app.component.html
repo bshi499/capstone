@@ -16,9 +16,9 @@
         <li><a *ngIf="authService.authenticated" routerLink='/upload' routerLinkActive="active">Upload Files</a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/documents' routerLinkActive="active">Documents<span class="glyphicon glyphicon-briefcase"></span></a></li>
         <li><a *ngIf="authService.authenticated" routerLink='/analysis' routerLinkActive="active">Analysis</a></li>
-      <!-- </ul> -->
-      <!-- <ul class="nav navbar-nav navbar-right"> -->
-        <li class="right">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
           <a *ngIf="!authService.authenticated" (click)="authService.login()">Log In</a>
           <a *ngIf="authService.authenticated" (click)=authService.logout()>Log Out</a>
         </li>

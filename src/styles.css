@@ -167,12 +167,12 @@ nav a:active {
     color: #black;
 }
 
-ul.navbar-nav {
+/*ul.navbar-nav {
   overflow:auto;
 }
-li.right {
+.navbar-nav li.right {
   float:right;
-}
+}*/
 
 /* MAIN */
 
