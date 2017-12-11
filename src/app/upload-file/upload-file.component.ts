@@ -26,8 +26,8 @@ export class UploadFileComponent implements OnInit {
     this.fileString;
   }
 
-  uploadAlert() {
-    alert('Document upload complete!');
+  uploadAlert(i) {
+    alert(i + ' documents uploaded!');
   }
 
   public fileString;
@@ -36,13 +36,13 @@ export class UploadFileComponent implements OnInit {
   }
 
   changeListener($event) : void {
-    this.readMultiple($event.target);
+    this.readThis($event.target);
     //this.readThis($event.target);
   }
 
 
   changeListener_mult($event) : void {
-    this.readThis($event.target);
+    this.readMultiple($event.target);
   }
 
   readThis(inputValue: any) : void {
@@ -89,26 +89,33 @@ export class UploadFileComponent implements OnInit {
     };
 
     myReader.readAsText(file);
-    this.uploadAlert();
+    this.uploadAlert(1);
   }
 
   readMultiple(inputFiles: any) {
+    var readCount = 0;
     var files = inputFiles.files;
-    
+
     Object.keys(files).forEach(i => {
 
       var file = files[i];
       var reader = new FileReader();
       var docEntry:Document = new Document();
       docEntry.name = file.name;
+      if (this.custodian === '') {
+        docEntry.custodian = file.type;
+      }
+      else {
+        docEntry.custodian = this.custodian;
+      }
 
       reader.onload = (e) => {
-      
+
         console.log(reader.result);
         this.fileString = reader.result;
 
-        if(files.length == 1)
-          document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
+        // if(files.length == 1)
+        //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
         docEntry.body = reader.result;
 
         var sendInput = {text: this.fileString};
@@ -118,17 +125,19 @@ export class UploadFileComponent implements OnInit {
           )).subscribe(data => {
 
           console.log("<Vector>: " + data);
-          
+
           docEntry.wordvec = data;
 
           this.documentService.createDocument(docEntry);
+          ++readCount;
         });
       };
 
-      reader.readAsBinaryString(file);
+      // reader.readAsBinaryString(file);
+      reader.readAsText(file);
     });
 
-    this.uploadAlert();
+    this.uploadAlert(readCount);
   }
 
   selectDocument(document: Document) {
