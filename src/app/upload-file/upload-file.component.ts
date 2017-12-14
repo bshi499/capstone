@@ -27,7 +27,7 @@ export class UploadFileComponent implements OnInit {
   }
 
   uploadAlert(i) {
-    if (i === 1) alert(i + ' document uploaded!');
+    if (i == 1) alert(i + ' document uploaded!');
     else alert(i + ' documents uploaded!');
   }
 
