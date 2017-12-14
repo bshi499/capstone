@@ -129,12 +129,13 @@ export class UploadFileComponent implements OnInit {
           docEntry.wordvec = data;
 
           this.documentService.createDocument(docEntry);
-          ++readCount;
+
         });
       };
 
       // reader.readAsBinaryString(file);
       reader.readAsText(file);
+      readCount++;
     });
 
     this.uploadAlert(readCount);
