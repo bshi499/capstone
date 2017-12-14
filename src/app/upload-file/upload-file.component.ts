@@ -27,7 +27,8 @@ export class UploadFileComponent implements OnInit {
   }
 
   uploadAlert(i) {
-    alert(i + ' documents uploaded!');
+    if (i === 1) alert(i + ' document uploaded!');
+    else alert(i + ' documents uploaded!');
   }
 
   public fileString;
@@ -92,9 +93,17 @@ export class UploadFileComponent implements OnInit {
     this.uploadAlert(1);
   }
 
-  readMultiple(inputFiles: any) {
+  readMultiple(inputValue: any) {
+    var output = [];
+    for (var i = 0, f; f = inputValue.files[i]; i++) {
+      output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list_mult').innerHTML = '<ul>' + output.join('') + '</ul>';
     var readCount = 0;
-    var files = inputFiles.files;
+    var files = inputValue.files;
 
     Object.keys(files).forEach(i => {
 
