@@ -72,7 +72,10 @@ export class UploadFileComponent implements OnInit {
 
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
-
+	  
+	  var string = myReader.result;
+	  var newString = string.replace(/.+:+.{0,100}/g,"");
+	  console.log("new string: " + newString);	
       var sendInput = {text: this.fileString};
 
       // post file data to server via '/api/uploads'
