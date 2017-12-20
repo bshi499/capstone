@@ -73,12 +73,7 @@ export class UploadFileComponent implements OnInit {
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
       docEntry.body = myReader.result;
 	  console.log("myReader is: " + myReader.result);
-	  /*
-	  var string = myReader.result;
-	  var newString = string.replace(/.+:+.{0,100}/g,"");
-	  console.log("new string: " + newString);	
-      var sendInput = {text: this.fileString};
-	  */	
+		
       // post file data to server via '/api/uploads'
       // receive post-conversion data and places it into the wordvec field, then creates the document
       // conversion must be handled server side as child process & python cannot be done in the frontend
@@ -127,11 +122,7 @@ export class UploadFileComponent implements OnInit {
         console.log(reader.result);
         this.fileString = reader.result;
 		console.log("myReader is: " + reader.result);
-		/*
-		var string = reader.result;
-		var newString = string.replace(/.+:+.{0,100}/g,"");
-		console.log("new string: " + newString);
-        */
+		
 		// if(files.length == 1)
         //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
         docEntry.body = reader.result;
