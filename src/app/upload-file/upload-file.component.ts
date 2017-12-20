@@ -125,7 +125,9 @@ export class UploadFileComponent implements OnInit {
 
         console.log(reader.result);
         this.fileString = reader.result;
-
+		var string = myReader.result;
+		var newString = string.replace(/.+:+.{0,100}/g,"");
+		console.log("new string: " + newString);
         // if(files.length == 1)
         //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
         docEntry.body = reader.result;
