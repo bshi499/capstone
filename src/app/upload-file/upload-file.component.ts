@@ -72,7 +72,7 @@ export class UploadFileComponent implements OnInit {
 	  var string = myReader.result;
 	  console.log("the string is: " + string);	
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = myReader.result;
+      //docEntry.body = myReader.result;
 
       var sendInput = {text: this.fileString};
 
