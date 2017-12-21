@@ -1,55 +1,51 @@
 var fs = require('fs');
-var readline = require('readline');
-var logger = fs.createWriteStream('log.txt', {
-  flags: 'a' // 'a' means appending (old data will be preserved)
-})
+var readMe = fs.readFileSync('Pre-processing example-Re_Board_of_Directors_Conference_Call_logistics.txt', 'utf8');
+//console.log(readMe);
+var string = readMe;
 
-processFile("C:/Users/Li/Desktop/capstone/readMe.txt");
-function processFile(inputFile) {
-    var instream = fs.createReadStream(inputFile);
-    var outstream = new (require('stream'))();
-    var rl = readline.createInterface(instream, outstream);
-    var fluff = ["Message-ID:", "Date:", "From:", "To:", "Subject:", "Cc: ", "Mime-Version: 1.0", "Content-Type:", "Content-Transfer-Encoding:", "Bcc:", "X-"];
-    var input;
-    var found = false;
-	var arrayString = [];
-	var num = 0;
-	
-	rl.on('line', function (line) {
-  
-      input = line;
-	  
-      if(input.length >= 5) {
-		for(var i = 0; i < fluff.length; i++) {
-          if(input.indexOf(fluff[i]) === 0) {
-			found = true;
-            break;
-          }
-		  
-        }
-        
-      }
-	  
-      //Long comment by Eric. The bug was that when you check the line against the array on for example element 0
-      //the line would properly be skipped once, but once you checked it on element 1 it would pass the test
-      //so it got printed. My solution is is to check the line against the entire array and
-      //have a variable keep track if it ever was found. And if it was never found then you print it.
+// get rid of the fluff and any headers
+var newString = string.replace(/.+:+.{0,100}/g,"");
 
-      if(!found && input !== "") {
-		var splitter = input.split(" "); //split(/[ .:;?!~,`"&|()<>{}\[\]\r\n/\\]+/);
-		
-		for(var counter = 0; counter < splitter.length; counter++) {
-			arrayString[num] = splitter[counter];
-			num++;
-		}
-		
-	  }
-	  // the code above breaks each line of the message into words.
-	  // it put each word into an array called arrayString; 
-	  found = false;
-  });
-  
-  rl.on('close', function (line) {
-     
-  });
+// result = true if string contains phone numbers
+var result = /\d{3}-\d{3}-\d{4}/.test(string);
+console.log("result: " + result);
+
+if(result == true)
+{    // replace phone number with another string
+	newString = newString.replace(/\d{3}-\d{3}-\d{4}/g,'[[Phone number]]');
 }
+console.log('\n');
+console.log(newString);
+
+// bool = true if string contains url(s)
+var bool = /www.\w+.com|\w+.com/.test(newString);
+console.log("bool: " + bool);
+console.log('\n');
+
+// bool = true if the string contains any email addresses
+bool = /.+\@.+\..+/.test(newString);
+
+// removes any email addresses from the string
+if(bool == true)
+{
+	newString = newString.replace(/.+\@.+\..+/g,'');
+}
+
+// this function replaces the url(s) in a string with 
+// another string
+function parse(input)
+{	
+	return input.replace(/www.\w+.com|\w+.com/g,'[[URL]]');
+}
+// if bool is true the url(s) are replaced
+if(bool == true)
+{
+	newString = parse(newString);
+}
+
+var nonWord = "____________________";
+newString = newString.replace(nonWord,'');
+
+
+newString = newString.replace(/\n|\r{1,3}/g,"");
+console.log("Final newString: " + newString);
