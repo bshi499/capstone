@@ -70,12 +70,11 @@ export class UploadFileComponent implements OnInit {
       // you can perform an action with read data here
       this.fileString = myReader.result;
 	  var string = myReader.result;
-	 
-	 // get rid of the fluff and any headers
 	  var newString = string.replace(/.+:+.{0,100}/g,"");
+	  newString = newString.replace(/\r?\n|\r/g,"");
 	  
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      //docEntry.body = newString;
+      docEntry.body = newString;
 
       var sendInput = {text: this.fileString};
 
@@ -127,12 +126,12 @@ export class UploadFileComponent implements OnInit {
         console.log(reader.result);
         this.fileString = reader.result;
 		var word = reader.result;
-		// get rid of the fluff and any headers
-		var expression = word.replace(/.+:+.{0,100}/g,"");
+	    var letters = word.replace(/.+:+.{0,100}/g,"");
+	    letters = letters.replace(/\r?\n|\r/g,"");
 	
         // if(files.length == 1)
         //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-        //docEntry.body = expression;
+        docEntry.body = letters;
 
         var sendInput = {text: this.fileString};
 
