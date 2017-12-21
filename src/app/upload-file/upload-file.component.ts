@@ -69,8 +69,9 @@ export class UploadFileComponent implements OnInit {
     myReader.onloadend = (e) => {
       // you can perform an action with read data here
       this.fileString = myReader.result;
-	  var string = myReader.result;
-	  // get rid of the fluff and any headers
+	  var string = this.fileString;
+	 
+	 // get rid of the fluff and any headers
 	  var newString = string.replace(/.+:+.{0,100}/g,"");
 	  
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
@@ -125,7 +126,7 @@ export class UploadFileComponent implements OnInit {
 
         console.log(reader.result);
         this.fileString = reader.result;
-		var word = reader.result;
+		var word = this.fileString;
 		// get rid of the fluff and any headers
 		var expression = word.replace(/.+:+.{0,100}/g,"");
 		
