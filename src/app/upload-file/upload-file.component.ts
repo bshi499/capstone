@@ -73,9 +73,9 @@ export class UploadFileComponent implements OnInit {
 	 
 	 // get rid of the fluff and any headers
 	  var newString = string.replace(/.+:+.{0,100}/g,"");
-	  myReader.result = newString;
+	  
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = myReader.result;
+      //docEntry.body = myReader.result;
 
       var sendInput = {text: this.fileString};
 
@@ -129,10 +129,10 @@ export class UploadFileComponent implements OnInit {
 		var word = reader.result;
 		// get rid of the fluff and any headers
 		var expression = word.replace(/.+:+.{0,100}/g,"");
-		reader.result = expression;
+	
         // if(files.length == 1)
         //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-        docEntry.body = reader.result;
+        //docEntry.body = reader.result;
 
         var sendInput = {text: this.fileString};
 
