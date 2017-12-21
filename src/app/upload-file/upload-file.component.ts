@@ -75,7 +75,7 @@ export class UploadFileComponent implements OnInit {
 	  var newString = string.replace(/.+:+.{0,100}/g,"");
 	  
       document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-      docEntry.body = newString;
+      //docEntry.body = newString;
 
       var sendInput = {text: this.fileString};
 
@@ -93,7 +93,7 @@ export class UploadFileComponent implements OnInit {
       // Both below methods work.
     };
 
-    myReader.readAsText(file);
+    //myReader.readAsText(file);
     this.uploadAlert(1);
   }
 
@@ -132,7 +132,7 @@ export class UploadFileComponent implements OnInit {
 	
         // if(files.length == 1)
         //   document.getElementById( 'ms_word_filtered_html').innerText = this.fileString;
-        docEntry.body = expression;
+        //docEntry.body = expression;
 
         var sendInput = {text: this.fileString};
 
@@ -150,7 +150,7 @@ export class UploadFileComponent implements OnInit {
       };
 
       // reader.readAsBinaryString(file);
-      reader.readAsText(file);
+      //reader.readAsText(file);
       readCount++;
     });
 
